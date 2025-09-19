@@ -42,7 +42,7 @@ class Program
         // This part displays if the student passed or failed
         if (passingGrade)
         {
-        Console.WriteLine("Congratulations! You are passing the class!");
+            Console.WriteLine("Congratulations! You are passing the class!");
         }
         else  
         {
