@@ -5,16 +5,18 @@ class Program
     static void Main(string[] args)
     {
 
-        /*
 
-        What will be the the random number!
+
+        //What will be the the random number!
+        // we now will make it our random number
         Random random = new Random();
         int magicNumber = random.Next(1, 101);
 
-        */
-        // this is going to be our test number
+        
+        /* this is going to be our test number
+        we no longer use this
         int magicNumber = 36;
-
+        */
 
         Console.WriteLine("Welcome to guess the magic number!");
         Console.Write("Let's get started. what is your guess for the magic number? ");
@@ -27,10 +29,13 @@ class Program
             if (guess < magicNumber)
             {
                 Console.WriteLine("You guessed under the number");
+                Console.WriteLine(""); // this makes it clearer to read
             }
             else
             {
                 Console.WriteLine("You guessed over the number");
+                Console.WriteLine(""); //this make it clearer to read
+
             }
             Console.Write("What is your next guess? ");
             string nextGuess = Console.ReadLine();
