@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 class Program
 {
@@ -29,6 +31,15 @@ class Program
             }
         }
 
+        
+        int sum = 0;
+        foreach (int number in theBigList)
+        {
+            sum += number;
+        }
+
+        Console.WriteLine($"The sum is: {sum}");
+        
 
 
 
