@@ -28,12 +28,12 @@ class Program
         {
             if (guess < magicNumber)
             {
-                Console.WriteLine("You guessed under the number");
+                Console.WriteLine($"{guess} is too low");
                 Console.WriteLine(""); // this makes it clearer to read
             }
             else
             {
-                Console.WriteLine("You guessed over the number");
+                Console.WriteLine($"{guess} is too high");
                 Console.WriteLine(""); //this make it clearer to read
 
             }
