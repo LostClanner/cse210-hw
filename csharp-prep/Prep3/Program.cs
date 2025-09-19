@@ -21,6 +21,29 @@ class Program
         string firstGuess = Console.ReadLine();
         int guess = int.Parse(firstGuess);
 
+
+        while (guess != magicNumber)
+        {
+            if (guess < magicNumber)
+            {
+                Console.WriteLine("You guessed under the number");
+            }
+            else
+            {
+                Console.WriteLine("You guessed over the number");
+            }
+            Console.Write("What is your next guess? ");
+            string nextGuess = Console.ReadLine();
+            guess = int.Parse(nextGuess);
+        }
+        
+        Console.WriteLine("That was the Magic Number! Congrats!");
+
+
+
+
+        /*
+                   This is the old system for the guesser
         if (guess < magicNumber)
         {
             Console.WriteLine("You guessed under the number");
@@ -33,6 +56,8 @@ class Program
         {
             Console.WriteLine("That was the magic number! Congrats!");
         }
+
+        */
 
     }
 }
