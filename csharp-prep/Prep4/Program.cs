@@ -31,7 +31,7 @@ class Program
             }
         }
 
-        
+
         int sum = 0;
         foreach (int number in theBigList)
         {
@@ -40,6 +40,9 @@ class Program
 
         Console.WriteLine($"The sum is: {sum}");
         
+        
+        float average = ((float)sum) / theBigList.Count;
+        Console.WriteLine($"The average is: {average}");
 
 
 
