@@ -11,8 +11,9 @@ class Program
         // we now will make it our random number
         Random random = new Random();
         int magicNumber = random.Next(1, 101);
+        int guessAmount = 0;
 
-        
+
         /* this is going to be our test number
         we no longer use this
         int magicNumber = 36;
@@ -30,19 +31,22 @@ class Program
             {
                 Console.WriteLine($"{guess} is too low");
                 Console.WriteLine(""); // this makes it clearer to read
+                guessAmount += 1;
             }
             else
             {
                 Console.WriteLine($"{guess} is too high");
                 Console.WriteLine(""); //this make it clearer to read
+                guessAmount += 1;
 
             }
             Console.Write("What is your next guess? ");
             string nextGuess = Console.ReadLine();
             guess = int.Parse(nextGuess);
         }
-        
+
         Console.WriteLine("That was the Magic Number! Congrats!");
+        Console.WriteLine($"It took you {guessAmount} tries to find the magic number!");
 
 
 
