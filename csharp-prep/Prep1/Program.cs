@@ -10,8 +10,8 @@ class Program
         Console.Write("What is your last name? ");
         string lastName = Console.ReadLine();
 
-        Console.Write(firstName);
-        Console.Write(lastName);
+        Console.WriteLine(firstName);
+        Console.WriteLine(lastName);
 
     }
 }
