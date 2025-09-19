@@ -31,7 +31,7 @@ class Program
             }
         }
 
-
+        //this is the sum of the numbers
         int sum = 0;
         foreach (int number in theBigList)
         {
@@ -41,10 +41,12 @@ class Program
         Console.WriteLine($"The sum is: {sum}");
 
 
+        //this is the average
         float average = ((float)sum) / theBigList.Count;
         Console.WriteLine($"The average is: {average}");
 
 
+        //this is the largest number
         int bigNumber = theBigList[0];
 
         foreach (int number in theBigList)
@@ -53,14 +55,9 @@ class Program
             {
                 bigNumber = number;
             }
-
-
         }
 
         Console.WriteLine($"The largest number was: {bigNumber}");
-        
-
-
 
     }
 }
