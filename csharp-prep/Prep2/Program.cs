@@ -6,43 +6,49 @@ class Program
     {
         Console.Write("What is your current grade percentage? ");
         string grade = Console.ReadLine();
+        string letterGrade = "F";
         bool passingGrade = false;
 
         //This part goes throught which grade people got
         int gradePercentage = int.Parse(grade);
         if (gradePercentage >= 90)
         {
-            Console.WriteLine("You got an A! nice!");
+            letterGrade = "A";
             passingGrade = true;
         }
         else if (gradePercentage >= 80)
         {
-            Console.WriteLine("You got a B! Well done, but try a little harder next time.");
+            letterGrade = "B";
             passingGrade = true;
         }
         else if (gradePercentage >= 70)
         {
-            Console.WriteLine("You got a C. Hey, at least you passed!");
+            letterGrade = "C";
             passingGrade = true;
         }
         else if (gradePercentage >= 60)
         {
-            Console.WriteLine("You got a D... enjoy taking this class again.");
+            letterGrade = "D";
         }
+        
         else
         {
-            Console.WriteLine("You got an F. Maybe try the class before again, then take this one again.");
+            letterGrade = "F";
         }
+        
+        Console.WriteLine($"Your letter grade is: {letterGrade}");
+
 
         // This part displays if the student passed or failed
         if (passingGrade)
         {
-            Console.WriteLine("Congratulations! You are passing the class!");
+        Console.WriteLine("Congratulations! You are passing the class!");
         }
-        else
+        else  
         {
             Console.WriteLine("Unfortunately, you have failed the class.");
         }
 
-    }
+        }
+
 }
