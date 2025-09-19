@@ -39,16 +39,26 @@ class Program
         }
 
         Console.WriteLine($"The sum is: {sum}");
-        
-        
+
+
         float average = ((float)sum) / theBigList.Count;
         Console.WriteLine($"The average is: {average}");
 
 
+        int bigNumber = theBigList[0];
+
+        foreach (int number in theBigList)
+        {
+            if (number > bigNumber)
+            {
+                bigNumber = number;
+            }
 
 
+        }
 
-
+        Console.WriteLine($"The largest number was: {bigNumber}");
+        
 
 
 
