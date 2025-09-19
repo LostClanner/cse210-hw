@@ -4,6 +4,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
+        List<int> theBigList = new List<int>();
+
+        Console.WriteLine("This is you big list of numbers! you can add as many numbers that you want, but once you enter '0' it will give you info about your list!");
+
+
+        //this is our loop
+
+        bool keepGoing = true;
+
+        while (keepGoing)
+        {
+            Console.Write("Enter a number: ");
+            string input = Console.ReadLine();
+            int number = int.Parse(input);
+
+            if (number == 0)
+            {
+                keepGoing = false;
+            }
+            else
+            {
+                theBigList.Add(number);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
