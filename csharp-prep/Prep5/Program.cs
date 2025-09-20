@@ -28,7 +28,7 @@ class Program
     static void Main(string[] args)
     {
 
-        DisplayAttributeWelcome();
+        DisplayWelcome();
         PromptUserName();
         PromptUserNumber();
         ProntUserBirthYear();
@@ -37,4 +37,13 @@ class Program
 
 
     }
+
+
+
+    static void DisplayWelcome()
+    {
+        Console.WriteLine("Welcome to the Program!");
+    }
+
+    
 }
