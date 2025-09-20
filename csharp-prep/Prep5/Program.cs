@@ -33,12 +33,14 @@ class Program
 
         Console.WriteLine($"test {UserName}");
 
-        
-        PromptUserNumber();
-       // ProntUserBirthYear();
-       // SquareNumber();
-       // DisplayResult();
-        
+
+        int UserNumber = PromptUserNumber();
+
+        Console.WriteLine($"test {UserNumber}");
+        // ProntUserBirthYear();
+        // SquareNumber();
+        // DisplayResult();
+
 
     }
 
@@ -60,6 +62,11 @@ class Program
     }
 
     // Get the user's favorite number
-    static int PromptUserNumber
+    static int PromptUserNumber()
+    {
+        Console.Write("Please enter your favorite number: ");
+        int InputNumber = int.Parse(Console.ReadLine());
+        return InputNumber;
+    }
 
 }
