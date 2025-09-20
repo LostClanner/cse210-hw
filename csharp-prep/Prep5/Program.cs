@@ -37,7 +37,10 @@ class Program
         int UserNumber = PromptUserNumber();
 
         Console.WriteLine($"test {UserNumber}");
-        // ProntUserBirthYear();
+        string UserBirthYear = ProntUserBirthYear();
+
+
+
         // SquareNumber();
         // DisplayResult();
 
@@ -67,6 +70,14 @@ class Program
         Console.Write("Please enter your favorite number: ");
         int InputNumber = int.Parse(Console.ReadLine());
         return InputNumber;
+    }
+
+    //Get the user's birth year
+    static string ProntUserBirthYear()
+    {
+        Console.Write("Please enter the year you were born: ");
+        string InputBirthYear = Console.ReadLine();
+        return InputBirthYear;
     }
 
 }
