@@ -29,21 +29,25 @@ class Program
     {
 
         DisplayWelcome();
-        string UserName = PromptUserName();
 
-        Console.WriteLine($"test {UserName}");
+
+        string UserName = PromptUserName();
+        //Console.WriteLine($"test {UserName}");
 
 
         int UserNumber = PromptUserNumber();
-
-        Console.WriteLine($"test {UserNumber}");
-        string UserBirthYear = ProntUserBirthYear();
+        //Console.WriteLine($"test {UserNumber}");
 
 
+        int UserBirthYear = ProntUserBirthYear();
+        //Console.WriteLine($"test {UserBirthYear}");
 
-        // SquareNumber();
-        // DisplayResult();
 
+        int SquareNumber = UserSquareNumber(UserNumber);
+        //Console.WriteLine($"test {SquareNumber}");
+
+
+        DisplayResult(UserName, UserBirthYear, SquareNumber);
 
     }
 
@@ -73,11 +77,27 @@ class Program
     }
 
     //Get the user's birth year
-    static string ProntUserBirthYear()
+    static int ProntUserBirthYear()
     {
         Console.Write("Please enter the year you were born: ");
-        string InputBirthYear = Console.ReadLine();
+        int InputBirthYear = int.Parse(Console.ReadLine());
         return InputBirthYear;
+    }
+
+    //Squares the users number
+    static int UserSquareNumber(int UserNumber)
+    {
+        int SquaredNumber = UserNumber * UserNumber;
+        return SquaredNumber;
+    }
+
+
+    //Display the results
+    static void DisplayResult(string UserName, int UserBirthYear, int SquareNumber)
+    {
+        Console.WriteLine($"{UserName} the square of your number is {SquareNumber}");
+        Console.WriteLine($"{UserName} you will turn {2025 - UserBirthYear} this year.");
+
     }
 
 }
