@@ -29,21 +29,37 @@ class Program
     {
 
         DisplayWelcome();
-        PromptUserName();
-        PromptUserNumber();
-        ProntUserBirthYear();
-        SquareNumber();
-        DisplayResult();
+        string UserName = PromptUserName();
 
+        Console.WriteLine($"test {UserName}");
+
+        
+        PromptUserNumber();
+       // ProntUserBirthYear();
+       // SquareNumber();
+       // DisplayResult();
+        
 
     }
 
 
-
+    // Welcome message function
     static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
     }
 
-    
+
+    // Get the User's name
+    static string PromptUserName()
+    {
+        Console.Write("Please enter your name: ");
+        string InputName = Console.ReadLine();
+        return InputName;
+
+    }
+
+    // Get the user's favorite number
+    static int PromptUserNumber
+
 }
