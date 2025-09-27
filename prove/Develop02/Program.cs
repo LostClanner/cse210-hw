@@ -18,30 +18,27 @@ class Program
         int Selection = int.Parse(Console.ReadLine());
 
 
-        //Selection logic and where to go now
-        if (Selection == 1)
+        //Switch should be a lot better!
+        switch (Selection)
         {
-
-        }
-        else if (Selection == 2)
-        {
-
-        }
-        else if (Selection == 3)
-        {
-
-        }
-        else if (Selection == 4)
-        {
-
-        }
-        else if (Selection == 5)
-        {
-
-        }
-        else
-        {
-
+            case 1:
+                Console.WriteLine("You selected option 1: View your journal");
+                break;
+            case 2:
+                Console.WriteLine("You selected option 2: Add a new entry");
+                break;
+            case 3:
+                Console.WriteLine("You selected option 3: Load your journal file");
+                break;
+            case 4:
+                Console.WriteLine("You selected option 4: Save your journal");
+                break;
+            case 5:
+                Console.WriteLine("You selected option 5: Quit");
+                break;
+            default:
+                Console.WriteLine("Invalid selection. Please enter a number between 1 and 5.");
+                break;
         }
         
 
