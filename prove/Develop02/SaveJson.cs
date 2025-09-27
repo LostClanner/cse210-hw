@@ -6,6 +6,7 @@ public class SaveJson
 {
     public void _save(string filename, string myjson)
     {
+        //Really similar to the load function, but this one can write to a file
         var path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename);
         Console.WriteLine("Saving to:");
         Console.WriteLine(path);    

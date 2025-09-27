@@ -3,6 +3,7 @@ using System;
 public class PromptGen
 {
 
+    //Gets a prompt, it's definitely not the most efficient way to do this but it works
     string randomPrompt = "";
     public string _generatePrompt()
     {
