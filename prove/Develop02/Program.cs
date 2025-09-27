@@ -19,7 +19,20 @@ class Program
             Console.WriteLine("Enter 3 to load your journal file");
             Console.WriteLine("Enter 4 to save your journal");
             Console.WriteLine("Enter 5 to quit");
-            int Selection = int.Parse(Console.ReadLine());
+
+            //int Selection = 0;
+            if (int.TryParse(Console.ReadLine(), out int Selection))
+            {
+                // The string was successfully converted to an integer
+                Console.WriteLine($"Parsed integer: {Selection}");
+            }
+            else
+            {
+                // The string could not be converted to an integer
+                Console.WriteLine("Input is not a valid integer.");
+            }
+
+  //          int Selection = int.Parse(Console.ReadLine());
             string filename = "";
 
 
@@ -29,11 +42,14 @@ class Program
                 case 1:
                     Console.WriteLine("You selected option 1: Write your journal");
                     // random questions
-                    Console.WriteLine("What is on your mind today?");
+                    PromptGen prompt = new PromptGen();
+                    string randomPrompt = prompt._generatePrompt();
+                    Console.WriteLine(randomPrompt);
+
                     String response = Console.ReadLine();
                     DateTime currentTime = DateTime.Now;
                     Console.WriteLine("Current local time is: " + currentTime);
-                    myjson += $"{{\"date\":\"{currentTime}\", \"prompt\":\"What is on your mind today?\", \"response\":\"{response}\"}}";
+                    myjson += $"{{\"date\":\"{currentTime}\", \"prompt\":\"{randomPrompt}\", \"response\":\"{response}\"}}";
                     Console.WriteLine("Entry recorded.");
                     Console.WriteLine(myjson);
 
