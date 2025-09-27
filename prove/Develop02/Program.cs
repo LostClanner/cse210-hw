@@ -19,6 +19,7 @@ class Program
             Console.WriteLine("Enter 3 to load your journal file");
             Console.WriteLine("Enter 4 to save your journal");
             Console.WriteLine("Enter 5 to quit");
+            Console.WriteLine(""); //blank line to make it cleaner
 
             //int Selection = 0;
             if (int.TryParse(Console.ReadLine(), out int Selection))
@@ -32,7 +33,7 @@ class Program
                 Console.WriteLine("Input is not a valid integer.");
             }
 
-  //          int Selection = int.Parse(Console.ReadLine());
+            //int Selection = int.Parse(Console.ReadLine());
             string filename = "";
 
 
