@@ -35,7 +35,7 @@ class Fraction
 
     public double GetDecimalValue()
     {
-        return (double)_topNumber / (double)_bottomNumber;
+        return Math.Round((double)_topNumber / (double)_bottomNumber, 2);
     }
 }
     
