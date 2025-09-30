@@ -10,7 +10,6 @@ class Program
         Console.WriteLine($"{TheFirstFraction.GetDecimalValue()}");
 
         Fraction TheSecondFraction = new Fraction(6);
-
         Console.WriteLine($"{TheFirstFraction.GetFractionString()}");
         Console.WriteLine($"{TheFirstFraction.GetDecimalValue()}");
 

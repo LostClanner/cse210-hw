@@ -15,9 +15,9 @@ class Fraction
     }
 
     //constructor with one parameter
-    public Fraction(int topNumber)
+    public Fraction(int Top)
     {
-        _topNumber = topNumber;
+        _topNumber = Top;
         _bottomNumber = 1;
     }
     //the constructor with two parameters
