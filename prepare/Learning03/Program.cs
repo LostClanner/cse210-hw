@@ -10,12 +10,12 @@ class Program
         Console.WriteLine($"{TheFirstFraction.GetDecimalValue()}");
 
         Fraction TheSecondFraction = new Fraction(6);
-        Console.WriteLine($"{TheFirstFraction.GetFractionString()}");
-        Console.WriteLine($"{TheFirstFraction.GetDecimalValue()}");
+        Console.WriteLine($"{TheSecondFraction.GetFractionString()}");
+        Console.WriteLine($"{TheSecondFraction.GetDecimalValue()}");
 
         Fraction TheThirdFraction = new Fraction(6, 7);
-        Console.WriteLine($"{TheFirstFraction.GetFractionString()}");
-        Console.WriteLine($"{TheFirstFraction.GetDecimalValue()}");
+        Console.WriteLine($"{TheThirdFraction.GetFractionString()}");
+        Console.WriteLine($"{TheThirdFraction.GetDecimalValue()}");
 
 
     }
