@@ -9,9 +9,22 @@ class Fraction
 
     //default constructor
     public Fraction()
-    { 
+    {
         _topNumber = 1;
         _bottomNumber = 1;
+    }
+
+    //constructor with one parameter
+    public Fraction(int topNumber)
+    {
+        _topNumber = topNumber;
+        _bottomNumber = 1;
+    }
+    //the constructor with two parameters
+    public Fraction(int topNumber, int bottomNumber)
+    {
+        _topNumber = topNumber;
+        _bottomNumber = bottomNumber;
     }
 }
     
