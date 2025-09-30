@@ -26,5 +26,16 @@ class Fraction
         _topNumber = topNumber;
         _bottomNumber = bottomNumber;
     }
+
+    public String GetFractionString()
+    {
+        string StringFraction = $"{_topNumber}/{_bottomNumber}";
+        return StringFraction;
+    }
+
+    public double GetDecimalValue()
+    {
+        return (double)_topNumber / (double)_bottomNumber;
+    }
 }
     
