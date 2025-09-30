@@ -17,6 +17,10 @@ class Program
         Console.WriteLine($"{TheThirdFraction.GetFractionString()}");
         Console.WriteLine($"{TheThirdFraction.GetDecimalValue()}");
 
+        Fraction TheFourthFraction = new Fraction(1, 3);
+        Console.WriteLine($"{TheFourthFraction.GetFractionString()}");
+        Console.WriteLine($"{TheFourthFraction.GetDecimalValue()}");
+
 
     }
 }
