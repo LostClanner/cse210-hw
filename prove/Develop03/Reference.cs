@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 public class Reference
@@ -7,23 +8,29 @@ public class Reference
     //--private things--
     private string Book = null;
     private int Chapter = 0;
-    private int Verse = 0;
     private int VerseStart = 0;
     private int VerseEnd = 0;
 
 
     //--public things--
     //reference book chapter verse
-    Reference(Book, Chapter, Verse)
+
+    public string _reference(string Book, int Chaper, int VerseStart, int VerseEnd)
     {
+        string _book = Book;
+        int _chapter = Chapter;
+        int _verseStart = VerseStart;
+        int _verseEnd = VerseEnd;
 
-
-
-    }
-    Reference(Book, Chaper, VerseStart, VerseEnd)
-    {
-
-
+        if (VerseEnd > VerseStart)
+        {
+            return $"{_book} {_chapter}:{_verseStart}-{_verseEnd}";
+        }
+        else
+        {
+            return $"{_book} {_chapter}:{_verseStart}";
+        }
+        
 
     }
     //reference book chapter versestart verse end
