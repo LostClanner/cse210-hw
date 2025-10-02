@@ -15,20 +15,21 @@ public class Reference
     //--public things--
     //reference book chapter verse
 
-    public string _reference(string Book, int Chaper, int VerseStart, int VerseEnd)
+    public string _reference(string Book, int Chapter, int VerseStart, int VerseEnd)
     {
-        string _book = Book;
+        string _book = null;
+        string _text = null;
         int _chapter = Chapter;
         int _verseStart = VerseStart;
         int _verseEnd = VerseEnd;
 
         if (VerseEnd > VerseStart)
         {
-            return $"{_book} {_chapter}:{_verseStart}-{_verseEnd}";
+            return $"{_book} {_chapter}:{_verseStart}-{_verseEnd}:{_text}";
         }
         else
         {
-            return $"{_book} {_chapter}:{_verseStart}";
+            return $"{_book} {_chapter}:{_verseStart},{_text}";
         }
         
 
