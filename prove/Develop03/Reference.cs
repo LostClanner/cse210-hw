@@ -27,14 +27,19 @@ public class Reference
         _verseEnd = VerseEnd;
     }
 
-    public GetDisplayText()
+
+    //Need to fix this one
+    //we want to return these things, but what feilds need to be put in to make it work correctly?
+    public string GetDisplayText()
     {
-        if (int Reference._verseEnd = 0){
+        if (int Reference._verseEnd = 0)
+        {
             return _book, _chapter, _startverse
         }
-        else {
+        else
+        {
 
-            return return _book, _chapter, _startverse, _verseEnd
+            return _book, _chapter, _startverse, _verseEnd
         }
 
 

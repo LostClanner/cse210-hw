@@ -22,7 +22,7 @@ class Word()
 
     public string GetDisplayText()
     {
-        if _isHidden
+        if (_isHidden)
         {
             return "______";
         }
