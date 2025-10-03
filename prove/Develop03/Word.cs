@@ -20,10 +20,17 @@ class Word()
         _isHidden = true;
     }
 
-    
-    
-
-
+    public string GetDisplayText()
+    {
+        if _isHidden
+        {
+            return "______";
+        }
+        else
+        {
+            return _theText;
+        }
+    }
 
 
 }
