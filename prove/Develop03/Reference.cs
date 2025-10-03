@@ -5,23 +5,25 @@ using System.Security.Cryptography;
 
 public class Reference
 {
-    //--private things--
+    /*
     private string Book = null;
     private int Chapter = 0;
     private int VerseStart = 0;
     private int VerseEnd = 0;
+    private string Text = null;
 
 
-    //--public things--
+    */
     //reference book chapter verse
 
-    public string _reference(string Book, int Chapter, int VerseStart, int VerseEnd)
+    public string _reference(int UserInput, string Book, int Chapter, int VerseStart, int VerseEnd, string Text)
     {
-        string _book = null;
-        string _text = null;
+        string _book = Book;
+        string _text = Text;
         int _chapter = Chapter;
         int _verseStart = VerseStart;
         int _verseEnd = VerseEnd;
+        int 
 
         if (VerseEnd > VerseStart)
         {
@@ -31,7 +33,7 @@ public class Reference
         {
             return $"{_book} {_chapter}:{_verseStart},{_text}";
         }
-        
+
 
     }
     //reference book chapter versestart verse end
