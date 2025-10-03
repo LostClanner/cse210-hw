@@ -2,10 +2,25 @@ using System;
 
 
 
-public class Word()
+class Word()
 {
-    private string text = ("");
-    private bool Hidden = false;
+    private string _theText;
+    private bool _isHidden;
+
+
+    public Word(string TheText)
+    {
+        _theText = TheText;
+        _isHidden = false;
+
+    }
+
+    public void Hide()
+    {
+        _isHidden = true;
+    }
+
+    
     
 
 
