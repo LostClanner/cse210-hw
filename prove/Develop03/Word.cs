@@ -1,8 +1,8 @@
 using System;
 
 
-
-class Word()
+//I had () here when I should not have!
+class Word
 {
     private string _theText;
     private bool _isHidden;
