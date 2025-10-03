@@ -32,16 +32,14 @@ public class Reference
     //we want to return these things, but what feilds need to be put in to make it work correctly?
     public string GetDisplayText()
     {
-        if (int Reference._verseEnd = 0)
+        if (_verseEnd == 0) //== in c# we are not in python anymore! had trouble with that one!
         {
-            return _book, _chapter, _startverse
+            return $"{_book} {_chapter}:{_verseStart}";
         }
         else
         {
-
-            return _book, _chapter, _startverse, _verseEnd
+            return $"{_book} {_chapter}:{_verseStart}-{_verseEnd}";
         }
-
 
     }
 }
