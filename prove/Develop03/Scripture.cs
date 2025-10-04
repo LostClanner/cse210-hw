@@ -3,9 +3,9 @@ using System;
 public class Scripture()
 {
     private Reference _reference;
-    private new List<_theText>;
+    private new List<string> _theText = new List<string>;
 
-    public HiddenMaker(Reference reference, string TheText)
+    public string HiddenMaker(Reference reference, string TheText)
     {
         reference = _reference;
         TheText = new List<_theText>();
