@@ -1,16 +1,15 @@
 using System;
 
-public class Scripture()
+public class Scripture
 {
     private Reference _reference;
-    private new List<string> _theText = new List<string>;
+    private List<Word> _theText = new List<Word>();
 
-    public string HiddenMaker(Reference reference, string TheText)
+    public Scripture(Reference reference, string text)
     {
-        reference = _reference;
-        TheText = new List<_theText>();
+        _reference = reference;
 
-        foreach (string TheText in text.split(""))
+        foreach (string TheText in text.Split(""))
         {
             _theText.Add(new Word(TheText));
         }
@@ -19,14 +18,14 @@ public class Scripture()
 
     public string GetDisplayText()
     {
-        string ReferenceText = _reference.GetDisplayText;
-        string TheActualStricpture = "";
+        string referenceText = _reference.GetDisplayText();
+        string theActualStricpture = "";
 
         foreach (Word TheText in _theText)
         {
-            TheActualStricpture += TheText.GetDisplayText() + " ";
+            theActualStricpture += TheText.GetDisplayText() + " ";
         }
-        return ReferenceText + " " + TheActualStricpture.Trim();
+        return referenceText + " " + theActualStricpture.Trim();
 
     }
 
@@ -45,7 +44,7 @@ public class Scripture()
     {
         foreach (Word word in _theText)
         {
-            if (!Word._isHidden())  // if even one word is visible
+            if (!word.IsHidden())  // if even one word is visible
             {
                 return false;
             }
