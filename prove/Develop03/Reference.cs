@@ -5,12 +5,14 @@ using System.Security.Cryptography;
 
 public class Reference
 {
+    //setting up private classes
     private string _book;
     private int _chapter;
     private int _verseStart;
     private int _verseEnd;
 
 
+    //this makes the references
     public Reference(string Book, int Chapter, int VerseStart)
     {
         _book = Book;
@@ -18,7 +20,7 @@ public class Reference
         _verseStart = VerseStart;
         _verseEnd = 0;
     }
-
+    //this is the same, but handles multipul verses
     public Reference(string Book, int Chapter, int VerseStart, int VerseEnd)
     {
         _book = Book;
@@ -28,11 +30,10 @@ public class Reference
     }
 
 
-    //Need to fix this one
-    //we want to return these things, but what feilds need to be put in to make it work correctly?
+    //this one displayes the reference cleanly
     public string GetDisplayText()
     {
-        if (_verseEnd == 0) //== in c# we are not in python anymore! had trouble with that one!
+        if (_verseEnd == 0)
         {
             return $"{_book} {_chapter}:{_verseStart}";
         }

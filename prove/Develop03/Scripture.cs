@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 public class Scripture
 {
+    //setting up the private references
     private Reference _reference;
     private List<Word> _theText = new List<Word>();
 
+    
+    //this splits the string into words
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
@@ -16,7 +19,7 @@ public class Scripture
         }
 
     }
-
+    //this is able to display the words and adds a space
     public string GetDisplayText()
     {
         string referenceText = _reference.GetDisplayText();
@@ -30,7 +33,7 @@ public class Scripture
 
     }
 
-
+    //this one is also a strech. It hides the words, and makes sure only words that are not hidden are selected
     public void HideRandomWords(int TheOneThatHides)
     {
         List<int> visibleText = new List<int>(); ;
@@ -61,6 +64,8 @@ public class Scripture
 
 
 /*
+    this is the old HideRandomWords
+
     Random rand = new Random();
     for (int i = 0; i < TheOneThatHides; i++)
     {
@@ -70,12 +75,12 @@ public class Scripture
 
 */
 
-
+    // This checks to see if everything is hidden
     public bool IsCompletelyHidden()
     {
         foreach (Word word in _theText)
         {
-            if (!word.IsHidden())  // if even one word is visible
+            if (!word.IsHidden())
             {
                 return false;
             }
@@ -86,7 +91,3 @@ public class Scripture
 
 
 }
-
-
-
-//We will work on this one later.

@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        //this creates our scriptures as things we can use
         Reference refer1 = new Reference("John", 3, 16);
         Scripture TheText1 = new Scripture (refer1, "For God so loved the world, that he gave his only begotten Son.");
 
@@ -16,6 +18,8 @@ class Program
         Reference refer4 = new Reference("Matthew", 3, 14, 17);
         Scripture TheText4 = new Scripture (refer4, "14 But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.");
 
+
+        //this is the start of the program, its a choice switch
         Console.WriteLine("Welcome to the Scripture Memorizer!");
         Console.WriteLine("please select a scripture to memorize:");
         Console.WriteLine("1. John 3:16");
@@ -45,6 +49,8 @@ class Program
                 break;
         }
 
+
+        //while look to keep it going
         while (!scripture.IsCompletelyHidden())
         {
             Console.Clear();
