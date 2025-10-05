@@ -1,7 +1,6 @@
 using System;
 
 
-//I had () here when I should not have!
 class Word
 {
     private string _theText;
@@ -36,6 +35,7 @@ class Word
     {
         return _isHidden;
     }
+    
 
 
 }

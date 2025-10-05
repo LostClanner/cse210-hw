@@ -33,13 +33,43 @@ public class Scripture
 
     public void HideRandomWords(int TheOneThatHides)
     {
+        List<int> visibleText = new List<int>(); ;
+        for (int i = 0; i < _theText.Count; i++)
+        {
+            if (!_theText[i].IsHidden())
+            {
+                visibleText.Add(i);
+            }
+        }
+
+        if (visibleText.Count == 0) return;
+
+        var rando = new Random();
+        int needToHide = Math.Min(TheOneThatHides, visibleText.Count);
+
+        for (int i = 0; i < needToHide; i++)
+        {
+            int pick = rando.Next(visibleText.Count);
+            int actualIndex = visibleText[pick];
+            _theText[actualIndex].Hide();
+            visibleText.RemoveAt(pick); 
+        }
+
+
+    }
+
+
+
+/*
     Random rand = new Random();
     for (int i = 0; i < TheOneThatHides; i++)
     {
         int index = rand.Next(_theText.Count);
         _theText[index].Hide();
     }
-    }
+
+*/
+
 
     public bool IsCompletelyHidden()
     {
