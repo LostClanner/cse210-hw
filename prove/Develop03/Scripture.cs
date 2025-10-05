@@ -44,7 +44,7 @@ public class Scripture
                 visibleText.Add(i);
             }
         }
-
+        //this was a lot of looking at stackoverflow, but I got something that works!
         if (visibleText.Count == 0) return;
 
         var rando = new Random();
