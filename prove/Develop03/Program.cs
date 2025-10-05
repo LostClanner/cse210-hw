@@ -16,7 +16,34 @@ class Program
         Reference refer4 = new Reference("Matthew", 3, 14, 17);
         Scripture TheText4 = new Scripture (refer4, "14 But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.");
 
-        Scripture scripture = TheText1;
+        Console.WriteLine("Welcome to the Scripture Memorizer!");
+        Console.WriteLine("please select a scripture to memorize:");
+        Console.WriteLine("1. John 3:16");
+        Console.WriteLine("2. Mormon 9:31");
+        Console.WriteLine("3. Alma 32:21");
+        Console.WriteLine("4. Matthew 3:14-17");
+        Console.Write("Enter the number of your choice: ");
+        string choice = Console.ReadLine();
+        Scripture scripture;
+        switch (choice)
+        {
+            case "1":
+                scripture = TheText1;
+                break;
+            case "2":
+                scripture = TheText2;
+                break;
+            case "3":
+                scripture = TheText3;
+                break;
+            case "4":
+                scripture = TheText4;
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Defaulting to John 3:16.");
+                scripture = TheText1;
+                break;
+        }
 
         while (!scripture.IsCompletelyHidden())
         {
@@ -35,20 +62,3 @@ class Program
 
     }
 }
-
-
-
-
-/*
-
-While loop:
-
-clear the console
-Display scripture.
-
-Ask for user input.
-
-quit if quit is typed
-in they hit enter hid words
-if the scripture is fully hidden close the program
-*/
