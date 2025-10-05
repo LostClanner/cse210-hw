@@ -14,7 +14,20 @@ class Program
         string TheText4 = "14 But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.";
 
 
+        while (!Scripture.IsCompletelyHidden())
+        {
+            Console.Clear();
+            Console.WriteLine(Scripture.GetDisplayText());
+            Console.WriteLine("Press Enter for more to disapear, enter 'quit' to exit: ");
+            string input = Console.ReadLine();
 
+            if (input.ToLower() == "quit")
+            {
+                break;
+            }
+
+            Scripture.HideRandomWords(3);
+        }
 
 
 
