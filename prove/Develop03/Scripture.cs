@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Scripture
 {
@@ -9,7 +10,7 @@ public class Scripture
     {
         _reference = reference;
 
-        foreach (string TheText in text.Split(""))
+        foreach (string TheText in text.Split(' '))
         {
             _theText.Add(new Word(TheText));
         }

@@ -15,13 +15,13 @@ class Program
 
         Reference refer4 = new Reference("Matthew", 3, 14, 17);
         Scripture TheText4 = new Scripture (refer4, "14 But John forbad him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him, and he saw the Spirit of God descending like a dove, and lighting upon him: And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.");
-    
 
+        Scripture scripture = TheText1;
 
-        while (!Scripture.IsCompletelyHidden())
+        while (!scripture.IsCompletelyHidden())
         {
             Console.Clear();
-            Console.WriteLine(Scripture.GetDisplayText());
+            Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine("Press Enter for more to disapear, enter 'quit' to exit: ");
             string input = Console.ReadLine();
 
@@ -30,10 +30,8 @@ class Program
                 break;
             }
 
-            Scripture.HideRandomWords(3);
+            scripture.HideRandomWords(3);
         }
-
-
 
     }
 }
