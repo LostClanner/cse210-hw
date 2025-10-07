@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Metadata;
 
 class Program
 {
@@ -14,7 +15,8 @@ class Program
         Console.WriteLine("What subject are you studying: ");
         string usersSubject = Console.ReadLine();
 
-        
+        Asignment a1 = new Asignment(usersName, usersSubject);
+        Console.WriteLine(a1.GetSummary());
 
     }
 }
