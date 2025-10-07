@@ -4,6 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        //string usersName = "";
+        //string usersSubject = "";
+
+
+        Console.WriteLine("What's your name: ");
+        string usersName = Console.ReadLine();
+
+        Console.WriteLine("What subject are you studying: ");
+        string usersSubject = Console.ReadLine();
+
+        
+
     }
 }
