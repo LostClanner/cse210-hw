@@ -18,5 +18,9 @@ class Program
         Asignment a1 = new Asignment(usersName, usersSubject);
         Console.WriteLine(a1.GetSummary());
 
+        MathAsignment a2 = new MathAsignment(usersName, usersSubject, "7.3", "8-19");
+        Console.WriteLine(a2.GetSummary());
+        Console.WriteLine(a2.GetHomeworkList());
+
     }
 }
