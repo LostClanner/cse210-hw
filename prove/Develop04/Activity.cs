@@ -18,14 +18,14 @@ public class Activity
 
     public void StartActivity()
     {
-        Console.WriteLine("Welcome to your welness ");
+        Console.WriteLine($"Welcome to your welness {_activityName}!");
 
 
     }
 
     public void EndActivity()
     {
-
+        Console.WriteLine($"Thanks for completing the {_activityName}!");
     }
 
 
@@ -35,7 +35,7 @@ public class Activity
     }
 
 
-    public void ShowSpinner()
+    protected void ShowSpinner()
     {
         List<string> animationString = new List<string>()
         {
@@ -44,12 +44,6 @@ public class Activity
 
         // DateTime startTime = DateTime.Now;
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
-
-
-        // animationString.Add("|");
-        // animationString.Add("/");
-        // animationString.Add("-");
-        // animationString.Add("\\");
 
         int i = 0;
         while (DateTime.Now < endTime)
@@ -70,12 +64,16 @@ public class Activity
 
     protected void ShowCountdown(int seconds)
     {
+        int i = seconds;
+        Console.Write(i);
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
 
     }
 
 
-    protected void PauseWithAnimation(int seconds, string message)
-    {
+    // protected void PauseWithAnimation(int seconds, string message)
+    // {
         
-    }
+    // }
 }
