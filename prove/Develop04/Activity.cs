@@ -35,7 +35,7 @@ public class Activity
     }
 
 
-    protected void ShowSpinner(int _duration)
+    public void ShowSpinner()
     {
         List<string> animationString = new List<string>()
         {
@@ -64,13 +64,7 @@ public class Activity
             {
                 i = 0;
             }
-
-
         }
-
-
-
-
     }
 
 
