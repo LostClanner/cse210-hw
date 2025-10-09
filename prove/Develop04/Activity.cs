@@ -25,14 +25,30 @@ public class Activity
 
     public void EndActivity()
     {
-            
+
     }
 
 
     public void Run()
     {
+
+    }
+
+
+    private void ShowSpinner(int seconds)
+    {
+
+    }
+
+
+    private void ShowCountdown(int seconds)
+    {
+
+    }
+
+
+    private void PauseWithAnimation(int seconds, string message)
+    {
         
     }
-    
-
 }
