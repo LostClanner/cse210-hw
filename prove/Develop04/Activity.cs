@@ -18,7 +18,7 @@ public class Activity
 
     public void StartActivity()
     {
-
+        Console.WriteLine("Welcome to your welness ");
 
 
     }
@@ -35,8 +35,41 @@ public class Activity
     }
 
 
-    protected void ShowSpinner(int seconds)
+    protected void ShowSpinner(int _duration)
     {
+        List<string> animationString = new List<string>()
+        {
+            "|", "/", "-", "\\"
+        };
+
+        // DateTime startTime = DateTime.Now;
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+
+
+        // animationString.Add("|");
+        // animationString.Add("/");
+        // animationString.Add("-");
+        // animationString.Add("\\");
+
+        int i = 0;
+        while (DateTime.Now < endTime)
+        {
+            string s = animationString[i];
+            Console.Write(s);
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+
+            i++;
+            if (i >= animationString.Count)
+            {
+                i = 0;
+            }
+
+
+        }
+
+
+
 
     }
 
