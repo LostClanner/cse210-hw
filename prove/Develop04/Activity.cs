@@ -5,9 +5,9 @@ using System;
 public class Activity
 {
 
-    private string _activityName = "";
-    private string _description = "";
-    private int _duration = 0;
+    protected string _activityName = "";
+    protected string _description = "";
+    protected int _duration = 0;
 
     public Activity(string activityName, string description, int duration)
     {
@@ -35,19 +35,19 @@ public class Activity
     }
 
 
-    private void ShowSpinner(int seconds)
+    protected void ShowSpinner(int seconds)
     {
 
     }
 
 
-    private void ShowCountdown(int seconds)
+    protected void ShowCountdown(int seconds)
     {
 
     }
 
 
-    private void PauseWithAnimation(int seconds, string message)
+    protected void PauseWithAnimation(int seconds, string message)
     {
         
     }
