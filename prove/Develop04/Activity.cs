@@ -18,14 +18,18 @@ public class Activity
 
     public void StartActivity()
     {
-        Console.WriteLine($"Welcome to your welness {_activityName}!");
-
-
+        Console.WriteLine($"Welcome to the {_activityName}!");
+        ShowSpinner(3);
+        Console.WriteLine("Your going to love it!");
+        ShowCountdown(5);
     }
 
     public void EndActivity()
     {
         Console.WriteLine($"Thanks for completing the {_activityName}!");
+        ShowSpinner(3);
+        Console.WriteLine("You have acomplished something great!");
+        ShowSpinner(3);
     }
 
 
@@ -35,7 +39,7 @@ public class Activity
     }
 
 
-    protected void ShowSpinner()
+    protected void ShowSpinner(int seconds)
     {
         List<string> animationString = new List<string>()
         {
@@ -43,7 +47,7 @@ public class Activity
         };
 
         // DateTime startTime = DateTime.Now;
-        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        DateTime endTime = DateTime.Now.AddSeconds(seconds);
 
         int i = 0;
         while (DateTime.Now < endTime)
@@ -68,6 +72,7 @@ public class Activity
         Console.Write(i);
         Thread.Sleep(1000);
         Console.Write("\b \b");
+        i--;
 
     }
 
