@@ -14,6 +14,8 @@ public class ListingActivity : Activity
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?"
     };
+    List<string> userList = new List<string>();
+
 
 
     private static Random _random = new Random();
@@ -38,6 +40,8 @@ public class ListingActivity : Activity
         {
             GetRandomPrompt();
             ShowCountdown(10);
+            string item = Console.ReadLine();
+            userList.Add(item);
             
         }
 
