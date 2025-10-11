@@ -9,31 +9,30 @@ public class BreathingActivity : Activity
         : base("box breathing", "You will hold you breath to the prompts!", duration)
     {
         _cycles = cycles;
-        
-        public override void Run()
-        {
-        StartActivity();
+    }
+    public override void Run()
+    {
+    StartActivity();
 
-        while (_cycles != 0)
+        for (int i = _cycles; i > 0; --i)
         {
             Console.Write("Breath in ");
             ShowCountdown(_duration);
             Console.Clear();
+
             Console.Write("Hold ");
             ShowCountdown(_duration);
             Console.Clear();
+
             Console.Write("Breath out ");
             ShowCountdown(_duration);
             Console.Clear();
+
             Console.Write("Hold ");
             ShowCountdown(_duration);
             Console.Clear();
-            _cycles = --1;
 
         }
         EndActivity();
-
-
-        }
     }
 }
