@@ -26,6 +26,13 @@ public class ReflectionActivity : Activity
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"
     };
+    private static Random _random = new Random();
+
+
+
+
+
+
 
     public ReflectionActivity(int duration)
         : base("reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", duration)
@@ -37,6 +44,14 @@ public class ReflectionActivity : Activity
         StartActivity();
 
         EndActivity();
+    }
+
+    private string GetRandomPrompt()
+    {
+        int index = _random.Next(_prompts.Count);
+        string randomPrompt = _prompts[index];
+        return randomPrompt;
+
     }
     
 
