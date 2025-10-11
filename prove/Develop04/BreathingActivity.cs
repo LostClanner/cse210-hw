@@ -1,41 +1,39 @@
-// using System;
+using System;
+using System.Runtime.CompilerServices;
 
 
-// public class BreathingActivity : Activity
-// {
-//     private int _repetitions = 0;
-//     private int _breathInterval = 0;
-
-//     public BreathingActivity(string activityName, string description, int duration, int repetitions, int breathInverval)
-//     {
-//         _repetitions = repetitions;
-//         _breathInterval = breathInverval;
-
-//     }
-
-//     public void run()
-//     {
+public class BreathingActivity : Activity
+{
+    private int _cycles;
+    public BreathingActivity(int duration, int cycles)
+        : base("box breathing", "You will hold you breath to the prompts!", duration)
+    {
+        _cycles = cycles;
         
-//     }
+        public override void Run()
+        {
+        StartActivity();
 
-// }using System;
+        while (_cycles != 0)
+        {
+            Console.Write("Breath in ");
+            ShowCountdown(_duration);
+            Console.Clear();
+            Console.Write("Hold ");
+            ShowCountdown(_duration);
+            Console.Clear();
+            Console.Write("Breath out ");
+            ShowCountdown(_duration);
+            Console.Clear();
+            Console.Write("Hold ");
+            ShowCountdown(_duration);
+            Console.Clear();
+            _cycles = --1;
+
+        }
+        EndActivity();
 
 
-// public class BreathingActivity : Activity
-// {
-//     private int _repetitions = 0;
-//     private int _breathInterval = 0;
-
-//     public BreathingActivity(string activityName, string description, int duration, int repetitions, int breathInverval)
-//     {
-//         _repetitions = repetitions;
-//         _breathInterval = breathInverval;
-
-//     }
-
-//     public void run()
-//     {
-        
-//     }
-
-// }
+        }
+    }
+}

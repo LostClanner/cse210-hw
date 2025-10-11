@@ -6,8 +6,8 @@ class Program
     {
         Console.WriteLine("Hello Develop04 World!");
 
-        Activity a1 = new Activity("yep", "test", 30);
+        // Activity a1 = new Activity("yep", "test", 30);
 
-        a1.ShowSpinner();
+        // a1.ShowSpinner();
     }
 }

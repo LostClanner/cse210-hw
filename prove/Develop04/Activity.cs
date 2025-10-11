@@ -2,12 +2,12 @@ using System;
 
 
 
-public class Activity
+public abstract class Activity
 {
 
-    protected string _activityName = "";
-    protected string _description = "";
-    protected int _duration = 0;
+    protected string _activityName;
+    protected string _description;
+    protected int _duration;
 
     public Activity(string activityName, string description, int duration)
     {
@@ -18,10 +18,12 @@ public class Activity
 
     public void StartActivity()
     {
-        Console.WriteLine($"Welcome to the {_activityName}!");
+        Console.WriteLine($"Welcome to the {_activityName} activity!");
         ShowSpinner(3);
         Console.WriteLine("Your going to love it!");
-        ShowCountdown(5);
+        Console.WriteLine(_description);
+        ShowCountdown(7);
+        Console.Clear();
     }
 
     public void EndActivity()
@@ -29,14 +31,12 @@ public class Activity
         Console.WriteLine($"Thanks for completing the {_activityName}!");
         ShowSpinner(3);
         Console.WriteLine("You have acomplished something great!");
-        ShowSpinner(3);
+        ShowSpinner(4);
+        Console.Clear();
     }
 
 
-    public void Run()
-    {
-
-    }
+    public abstract void Run();
 
 
     protected void ShowSpinner(int seconds)
