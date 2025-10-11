@@ -42,29 +42,32 @@ public class ReflectionActivity : Activity
     {
         StartActivity();
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        GetRandomPrompt();
+        ShowSpinner(7);
 
         while(DateTime.Now < endTime)
         {
+            GetRandomQuestion();
+            ShowCountdown(7);
             
         }
 
         EndActivity();
     }
 
-    private string GetRandomPrompt()
+    private void GetRandomPrompt()
     {
         int index = _random.Next(_prompts.Count);
         string randomPrompt = _prompts[index];
-        return randomPrompt;
+        Console.WriteLine(randomPrompt);
 
     }
 
-    private string GetRandomQuestion()
+    private void GetRandomQuestion()
     {
         int index = _random.Next(_question.Count);
-        string randomPrompt = _question[index];
-        return randomPrompt;
-
+        string randomQuestion = _question[index];
+        Console.WriteLine(randomQuestion);
     }
     
 
