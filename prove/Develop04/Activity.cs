@@ -20,11 +20,18 @@ public abstract class Activity
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} activity!");
-        ShowSpinner(3);
-        Console.WriteLine("Your going to love it!");
+        Console.WriteLine("");
         Console.WriteLine(_description);
-        ShowCountdown(7);
+        Console.WriteLine("");
+
+        
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _duration = int.Parse(Console.ReadLine());
+
+
         Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(5);
     }
 
     public void EndActivity()

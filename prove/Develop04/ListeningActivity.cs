@@ -31,21 +31,23 @@ public class ListingActivity : Activity
     public override void Run()
     {
         StartActivity();
-        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        Console.WriteLine("Get ready to list...");
         GetRandomPrompt();
-        ShowSpinner(7);
-        Console.WriteLine("\nStart listing items now:");
-        ShowCountdown(_duration);
+        Console.WriteLine("\nStart listing items in:");
+        ShowCountdown(5);
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
 
-        while(DateTime.Now < endTime)
+
+        while (DateTime.Now < endTime)
         {
             Console.Write("> ");
             string item = Console.ReadLine();
             userList.Add(item);
-            
-        }
 
+        }
+        
+        Console.WriteLine($"You listed {userList.Count} items!");
         EndActivity();
     }
 
