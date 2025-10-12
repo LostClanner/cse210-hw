@@ -48,7 +48,7 @@ public class ListingActivity : Activity
         }
 
         Console.WriteLine($"You listed {userList.Count} items!");
-        _log++;
+        LogCount();
         EndActivity();
     }
 

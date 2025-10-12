@@ -8,8 +8,8 @@ public abstract class Activity
     protected string _activityName;
     protected string _description;
     protected int _duration;
+    private int _log = 0;
 
-    protected int _log = 0;
 
     public Activity(string activityName, string description)
     {
@@ -84,10 +84,13 @@ public abstract class Activity
         }
     }
 
+    protected void LogCount()
+    {
+        _log++;
+    }
 
-    public void Log()
+    public void LogDisplay()
     {
         Console.WriteLine($"You did {_log} activities");
-
     }
 }

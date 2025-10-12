@@ -5,9 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Activity a1 = new BreathingActivity();
-        Activity a2 = new ReflectionActivity();
-        Activity a3 = new ListingActivity();
+        BreathingActivity a1 = new BreathingActivity();
+        ReflectionActivity a2 = new ReflectionActivity();
+        ListingActivity a3 = new ListingActivity();
 
         bool keepRunning = true;
         while (keepRunning)
@@ -39,8 +39,8 @@ class Program
                     break;
                 case 4:
                     keepRunning = false;
-                    a1.Log();
                     Console.WriteLine("Goodbye!");
+                    
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please select a valid option.");

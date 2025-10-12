@@ -62,8 +62,8 @@ public class ReflectionActivity : Activity
             Console.WriteLine();
 
         }
-        
-        _log++;
+
+        LogCount();
         EndActivity();
     }
 
