@@ -35,11 +35,12 @@ public class ListingActivity : Activity
         GetRandomPrompt();
         ShowSpinner(7);
         Console.WriteLine("\nStart listing items now:");
+        ShowCountdown(_duration);
+
 
         while(DateTime.Now < endTime)
         {
-            GetRandomPrompt();
-            ShowCountdown(10);
+            Console.Write("> ");
             string item = Console.ReadLine();
             userList.Add(item);
             
@@ -55,9 +56,5 @@ public class ListingActivity : Activity
         Console.WriteLine(randomPrompt);
 
     }
-
-
-
-
 
 }

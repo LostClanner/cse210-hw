@@ -18,6 +18,7 @@ public abstract class Activity
 
     public void StartActivity()
     {
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} activity!");
         ShowSpinner(3);
         Console.WriteLine("Your going to love it!");
