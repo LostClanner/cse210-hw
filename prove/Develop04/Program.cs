@@ -10,6 +10,7 @@ class Program
         ListingActivity a3 = new ListingActivity();
 
         bool keepRunning = true;
+        int activityCount = 0;
         while (keepRunning)
         {
 
@@ -28,19 +29,24 @@ class Program
                 case 1:
                     a1 = new BreathingActivity();
                     a1.Run();
+                    activityCount++;
                     break;
                 case 2:
                     a2 = new ReflectionActivity();
                     a2.Run();
+                    activityCount++;
                     break;
                 case 3:
                     a3 = new ListingActivity();
                     a3.Run();
+                    activityCount++;
                     break;
                 case 4:
                     keepRunning = false;
+                    Console.WriteLine($"You completed {activityCount} activities!");
+                    Thread.Sleep(3000);
                     Console.WriteLine("Goodbye!");
-                    
+
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please select a valid option.");

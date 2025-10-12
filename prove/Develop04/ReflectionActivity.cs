@@ -63,7 +63,6 @@ public class ReflectionActivity : Activity
 
         }
 
-        LogCount();
         EndActivity();
     }
 

@@ -84,13 +84,4 @@ public abstract class Activity
         }
     }
 
-    protected void LogCount()
-    {
-        _log++;
-    }
-
-    public void LogDisplay()
-    {
-        Console.WriteLine($"You did {_log} activities");
-    }
 }

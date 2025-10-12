@@ -28,7 +28,6 @@ public class BreathingActivity : Activity
 
         }
 
-        LogCount();
         EndActivity();
     }
 }
