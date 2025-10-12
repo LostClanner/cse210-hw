@@ -69,12 +69,12 @@ public abstract class Activity
 
     protected void ShowCountdown(int seconds)
     {
-        int i = seconds;
-        Console.Write(i);
-        Thread.Sleep(1000);
-        Console.Write("\b \b");
-        i--;
-
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 
 
