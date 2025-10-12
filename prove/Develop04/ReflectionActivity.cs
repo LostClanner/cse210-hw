@@ -35,20 +35,31 @@ public class ReflectionActivity : Activity
 
 
     public ReflectionActivity(int duration)
-        : base("reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", duration)
+        : base("reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.\nThis will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
     }
     public override void Run()
     {
         StartActivity();
-        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+
+        Console.WriteLine("Consider the following prompt");
         GetRandomPrompt();
-        ShowSpinner(7);
+        Console.WriteLine("When you have thought of it press enter");
+        Console.ReadLine();
+
+
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
+        Console.Write("You may begin in: ");
+        ShowCountdown(5);
+        Console.Clear();
+
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);  
 
         while(DateTime.Now < endTime)
         {
             GetRandomQuestion();
-            ShowCountdown(7);
+            ShowSpinner(13);
+            Console.WriteLine();
             
         }
 
@@ -59,7 +70,7 @@ public class ReflectionActivity : Activity
     {
         int index = _random.Next(_prompts.Count);
         string randomPrompt = _prompts[index];
-        Console.WriteLine(randomPrompt);
+        Console.WriteLine($"---{randomPrompt}---");
 
     }
 
@@ -67,7 +78,7 @@ public class ReflectionActivity : Activity
     {
         int index = _random.Next(_question.Count);
         string randomQuestion = _question[index];
-        Console.WriteLine(randomQuestion);
+        Console.Write($"> {randomQuestion}");
     }
     
 

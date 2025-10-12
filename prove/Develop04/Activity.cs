@@ -9,20 +9,19 @@ public abstract class Activity
     protected string _description;
     protected int _duration;
 
-    public Activity(string activityName, string description, int duration)
+    public Activity(string activityName, string description)
     {
         _activityName = activityName;
         _description = description;
-        _duration = duration;
     }
 
     public void StartActivity()
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} activity!");
-        Console.WriteLine("");
+        Console.WriteLine();
         Console.WriteLine(_description);
-        Console.WriteLine("");
+        Console.WriteLine();
 
         
         Console.Write("How long, in seconds, would you like for your session? ");
@@ -31,15 +30,13 @@ public abstract class Activity
 
         Console.Clear();
         Console.WriteLine("Get ready...");
-        ShowSpinner(5);
+        ShowSpinner(4);
     }
 
     public void EndActivity()
     {
         Console.WriteLine($"Thanks for completing the {_activityName}!");
         ShowSpinner(3);
-        Console.WriteLine("You have acomplished something great!");
-        ShowSpinner(4);
         Console.Clear();
     }
 
