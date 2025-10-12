@@ -34,7 +34,7 @@ public class ReflectionActivity : Activity
 
 
 
-    public ReflectionActivity(int duration)
+    public ReflectionActivity()
         : base("reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.\nThis will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
     }
@@ -58,7 +58,7 @@ public class ReflectionActivity : Activity
         while(DateTime.Now < endTime)
         {
             GetRandomQuestion();
-            ShowSpinner(13);
+            ShowSpinner(8);
             Console.WriteLine();
             
         }

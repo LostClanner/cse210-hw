@@ -36,7 +36,8 @@ public abstract class Activity
     public void EndActivity()
     {
         Console.WriteLine($"Thanks for completing the {_activityName}!");
-        ShowSpinner(3);
+        Console.WriteLine($"You spent {_duration} seconds on it");
+        ShowSpinner(4);
         Console.Clear();
     }
 
