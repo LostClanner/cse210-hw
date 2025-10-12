@@ -9,8 +9,8 @@ class Program
         ReflectionActivity a2 = new ReflectionActivity();
         ListingActivity a3 = new ListingActivity();
 
-        bool keepRunning = true;
-        int activityCount = 0;
+        bool keepRunning = true; //This makes it so that the program continues to run!
+        int activityCount = 0; //This is the strech
         while (keepRunning)
         {
 

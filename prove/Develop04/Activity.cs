@@ -8,7 +8,6 @@ public abstract class Activity
     protected string _activityName;
     protected string _description;
     protected int _duration;
-    private int _log = 0;
 
 
     public Activity(string activityName, string description)
@@ -17,6 +16,7 @@ public abstract class Activity
         _description = description;
     }
 
+    //The start that they all have
     public void StartActivity()
     {
         Console.Clear();
@@ -25,7 +25,7 @@ public abstract class Activity
         Console.WriteLine(_description);
         Console.WriteLine();
 
-        
+
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
 
@@ -35,6 +35,7 @@ public abstract class Activity
         ShowSpinner(4);
     }
 
+    //The end that they all have
     public void EndActivity()
     {
         Console.WriteLine($"Thanks for completing the {_activityName}!");
@@ -43,9 +44,11 @@ public abstract class Activity
         Console.Clear();
     }
 
-
+    // all the programs run a little different, so Abstraction for the win!
     public abstract void Run();
 
+
+    //this just spins for however long that you say
 
     protected void ShowSpinner(int seconds)
     {
@@ -73,7 +76,7 @@ public abstract class Activity
         }
     }
 
-
+    //This is just a countdown for however long you put in
     protected void ShowCountdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)

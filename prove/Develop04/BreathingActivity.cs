@@ -8,6 +8,8 @@ public class BreathingActivity : Activity
         : base("breathing activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing")
     {
     }
+
+    //this ones run
     public override void Run()
     {
         StartActivity();

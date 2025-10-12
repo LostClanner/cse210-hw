@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 public class ReflectionActivity : Activity
 {
 
+    //this is the prompt list
     private List<string> _prompts = new List<string>
     {
         "Think of a time when you stood up for someone else.",
@@ -14,6 +15,7 @@ public class ReflectionActivity : Activity
         "Think of a time when you did something truly selfless."
     };
 
+    //this is the question list
     private List<string> _question = new List<string>
     {
         "Why was this experience meaningful to you?",
@@ -26,11 +28,9 @@ public class ReflectionActivity : Activity
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"
     };
+
+    //random get a new random
     private static Random _random = new Random();
-
-
-
-
 
 
 
@@ -38,6 +38,8 @@ public class ReflectionActivity : Activity
         : base("reflection activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.\nThis will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
     }
+
+    //this ones run
     public override void Run()
     {
         StartActivity();
@@ -66,6 +68,7 @@ public class ReflectionActivity : Activity
         EndActivity();
     }
 
+    //gives you a random prompt
     private void GetRandomPrompt()
     {
         int index = _random.Next(_prompts.Count);
@@ -73,7 +76,7 @@ public class ReflectionActivity : Activity
         Console.WriteLine($"---{randomPrompt}---");
 
     }
-
+    //gets you a random question
     private void GetRandomQuestion()
     {
         int index = _random.Next(_question.Count);
@@ -81,9 +84,4 @@ public class ReflectionActivity : Activity
         Console.Write($"> {randomQuestion}");
     }
     
-
-
-
-
-
 }
