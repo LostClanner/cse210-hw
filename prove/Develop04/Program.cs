@@ -6,8 +6,7 @@ class Program
     static void Main(string[] args)
     {
         int duration = 0;
-        int a1Cycles = 0;
-        Activity a1 = new BreathingActivity(duration, a1Cycles);
+        Activity a1 = new BreathingActivity(duration);
         Activity a2 = new ReflectionActivity(duration);
         Activity a3 = new ListingActivity(duration);
 
@@ -24,23 +23,15 @@ class Program
     switch (choice)
         {
             case 1:
-                Console.WriteLine("How long, in seconds, would you like for your breathing session?");
-                duration = int.Parse(Console.ReadLine());
-                Console.WriteLine("How many cycles would you like to do?");
-                a1Cycles = int.Parse(Console.ReadLine());
-                a1 = new BreathingActivity(duration, a1Cycles);
+                a1 = new BreathingActivity(0);
                 a1.Run();
                 break;
             case 2:
-                Console.WriteLine("How long, in seconds, would you like for your reflection session?");
-                duration = int.Parse(Console.ReadLine());
-                a2 = new ReflectionActivity(duration);
+                a2 = new ReflectionActivity(0);
                 a2.Run();
                 break;
             case 3:
-                Console.WriteLine("How long, in seconds, would you like for your listing session?");
-                duration = int.Parse(Console.ReadLine());
-                a3 = new ListingActivity(duration);
+                a3 = new ListingActivity(0);
                 a3.Run();
                 break;
             case 4:
