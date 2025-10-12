@@ -53,16 +53,17 @@ public class ReflectionActivity : Activity
         ShowCountdown(5);
         Console.Clear();
 
-        DateTime endTime = DateTime.Now.AddSeconds(_duration);  
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        while(DateTime.Now < endTime)
+        while (DateTime.Now < endTime)
         {
             GetRandomQuestion();
             ShowSpinner(8);
             Console.WriteLine();
-            
-        }
 
+        }
+        
+        _log++;
         EndActivity();
     }
 

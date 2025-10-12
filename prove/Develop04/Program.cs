@@ -39,6 +39,7 @@ class Program
                     break;
                 case 4:
                     keepRunning = false;
+                    a1.Log();
                     Console.WriteLine("Goodbye!");
                     break;
                 default:

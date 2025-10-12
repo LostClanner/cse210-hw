@@ -27,6 +27,8 @@ public class BreathingActivity : Activity
             Console.WriteLine();
 
         }
+        
+        _log++;
         EndActivity();
     }
 }

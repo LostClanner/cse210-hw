@@ -9,6 +9,8 @@ public abstract class Activity
     protected string _description;
     protected int _duration;
 
+    protected int _log = 0;
+
     public Activity(string activityName, string description)
     {
         _activityName = activityName;
@@ -83,8 +85,9 @@ public abstract class Activity
     }
 
 
-    // protected void PauseWithAnimation(int seconds, string message)
-    // {
-        
-    // }
+    public void Log()
+    {
+        Console.WriteLine($"You did {_log} activities");
+
+    }
 }
