@@ -13,6 +13,7 @@ class Program
         shapes.Add(s2);
 
         Circle s3 = new Circle("Green", 4);
+        shapes.Add(s3);
 
 
         foreach (Shape s in shapes)
