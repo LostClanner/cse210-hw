@@ -12,7 +12,7 @@ public abstract class Shape
             _color = color;
         }
         
-        protected string GetColor()
+        public string GetColor()
         {
             return _color;
         }

@@ -9,6 +9,9 @@ class Program
         Square s1 = new Square("Blue", 5);
         shapes.Add(s1);
 
-        Console.WriteLine(s1);
+        string color = s1.GetColor();
+        double area = s1.GetArea();
+
+        Console.WriteLine($"The area of your shape is {area} and the color is {color}.");
     }
 }
