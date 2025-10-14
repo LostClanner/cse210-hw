@@ -12,6 +12,8 @@ class Program
         Rectangle s2 = new Rectangle("Yellow", 14, 28);
         shapes.Add(s2);
 
+        Circle s3 = new Circle("Green", 4);
+
 
         foreach (Shape s in shapes)
         {
