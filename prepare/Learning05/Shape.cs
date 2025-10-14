@@ -5,7 +5,12 @@ using System.Runtime.CompilerServices;
 public abstract class Shape
 {
 
-        private string _color;
+    private string _color;
+        
+        protected Shape(string color)
+    {
+        _color = color;
+    }
         
         protected string GetColor()
         {
@@ -16,6 +21,6 @@ public abstract class Shape
         {
             _color = color;
         }
-        protected abstract double GetArea();
+        public abstract double GetArea();
         
 }
