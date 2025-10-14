@@ -21,7 +21,7 @@ class Program
             string color = s.GetColor();
             double area = s.GetArea();
 
-            Console.WriteLine($"The area of your shape is {area:2f} and the color is {color}.");
+                Console.WriteLine($"The area of your shape is {area:f2} and the color is {color}.");
         }
     }
 }
