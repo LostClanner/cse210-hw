@@ -9,9 +9,16 @@ class Program
         Square s1 = new Square("Blue", 5);
         shapes.Add(s1);
 
-        string color = s1.GetColor();
-        double area = s1.GetArea();
+        Rectangle s2 = new Rectangle("Yellow", 14, 28);
+        shapes.Add(s2);
 
-        Console.WriteLine($"The area of your shape is {area} and the color is {color}.");
+
+        foreach (Shape s in shapes)
+        {
+            string color = s.GetColor();
+            double area = s.GetArea();
+
+            Console.WriteLine($"The area of your shape is {area} and the color is {color}.");
+        }
     }
 }
