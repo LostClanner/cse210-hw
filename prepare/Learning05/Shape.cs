@@ -8,9 +8,9 @@ public abstract class Shape
     private string _color;
         
         protected Shape(string color)
-    {
-        _color = color;
-    }
+        {
+            _color = color;
+        }
         
         protected string GetColor()
         {
