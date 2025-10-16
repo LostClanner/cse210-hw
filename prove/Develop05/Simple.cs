@@ -6,11 +6,8 @@ public class Simple : Goal
 {
     private bool _isComplete;
 
-    public Goal() : base()
+    public Goal(string name, string summary, int points) : base(name, summary, points)
     {
-        
-
-
     }
     
     public override int RecordEvent();
@@ -18,9 +15,5 @@ public class Simple : Goal
     public override bool IsComplete();
 
     public override string GetDisplayString();
-
-
-
-
 
 }
