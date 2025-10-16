@@ -23,7 +23,17 @@ public class Menu
         Console.WriteLine("Please select 1-3");
         string choice = Console.ReadLine();
 
-        
+        //name summary points
+        Console.WriteLine("What's the name of the goal?\n");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("How are you going to complete this goal?\n");
+        string summary = Console.ReadLine();
+
+        Console.WriteLine("How many points should the be worth?\n");
+        int points = int.parse(Console.ReadLine());
+
+
 
 
     }
