@@ -1,20 +1,25 @@
 using System;
 
 
-abstract class Goal {
+abstract class Goal
+{
 
-  #_name: string
+    protected string _name;
+    protected string _summary;
+    protected int _points;
 
-  #_summary: string
 
-  #_points: int
+    public Goal(string name, string summary, int points)
+    {
+        _name = name;
+        _summary = summary;
+        _points = points;
+    }
 
-  
+    abstract int RecordEvent();
 
-  +Goal(name: string, summary: string, points: int)
+    abstract bool IsComplete();
 
-  +abstract int RecordEvent()
+    abstract string GetDisplayString();
 
-  +abstract bool IsComplete()
-
-  +abstract string GetDisplayString()
+}
