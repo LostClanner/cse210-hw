@@ -38,19 +38,18 @@ public class Menu
         {
             case "1":
                 Simple simpleGoal = new Simple(name, summary, points);
-                _goals.Add(simpleGoal);
+                _goal.Add(simpleGoal);
                 break;
 
-
-
-
-
-
-
-
-
-
-
+            // case "2":
+            //     Eternal eternalGoal = new Eternal(name, summary, points);
+            //     _goal.Add(eternalGoal);
+            //     break;
+            // case "3":
+            //     Checklist checklistGoal = new Checklist(name, summary, points, );
+            //     _goal.Add(checklistGoal);
+            //     break;
+            
         }
 
 
