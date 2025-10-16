@@ -23,7 +23,7 @@ public class Menu
         Console.WriteLine("Please select 1-3");
         string choice = Console.ReadLine();
 
-        //name summary points
+        //All the goals have this
         Console.WriteLine("What's the name of the goal?\n");
         string name = Console.ReadLine();
 
@@ -33,6 +33,25 @@ public class Menu
         Console.WriteLine("How many points should the be worth?\n");
         int points = int.parse(Console.ReadLine());
 
+        //this one is case specsific
+        switch (choice)
+        {
+            case "1":
+                Simple simpleGoal = new Simple(name, summary, points);
+                _goals.Add(simpleGoal);
+                break;
+
+
+
+
+
+
+
+
+
+
+
+        }
 
 
 
