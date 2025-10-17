@@ -8,7 +8,11 @@ public class Menu
 
 
     private void ListGoals()
-    {
+    {  
+        foreach (Goal goal in _goal)
+        {
+            
+        }
 
 
     }
@@ -30,8 +34,8 @@ public class Menu
         Console.WriteLine("How are you going to complete this goal?\n");
         string summary = Console.ReadLine();
 
-        Console.WriteLine("How many points should the be worth?\n");
-        int points = int.parse(Console.ReadLine());
+        Console.WriteLine("How many points should the goal be worth?\n");
+        int points = int.Parse(Console.ReadLine());
 
         //this one is case specsific
         switch (choice)

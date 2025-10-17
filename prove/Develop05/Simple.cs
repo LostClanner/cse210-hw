@@ -10,10 +10,19 @@ public class Simple : Goal
     {
     }
     
-    public override int RecordEvent();
+    public override int RecordEvent()
+    {
+        
+    }
 
-    public override bool IsComplete();
+    public override bool IsComplete()
+    {
+        
+    }
 
-    public override string GetDisplayString();
+    public override string GetDisplayString()
+    {
+        
+    }
 
 }
