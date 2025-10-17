@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 class Program
 {
@@ -7,24 +8,27 @@ class Program
     {
         bool isRunning = true;
         int choice = -1;
+        Menu testMenu = new Menu();
 
         while (isRunning)
         {
+            
             Console.WriteLine("Welcome to Goal Setter Quest");
             Console.WriteLine("Please select what you would like to do");
             Console.WriteLine("1. Make a new goal");
             Console.WriteLine("2. List all of your goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
+            choice = int.Parse(Console.ReadLine());
 
             switch (choice)
             {
                 case 1:
-                    MakeGoals();
+                    testMenu.MakeGoals();
                     break;
 
                 case 2:
-                    ListGoals();
+                    testMenu.ListGoals();
                     break;
 
                 case 0:
