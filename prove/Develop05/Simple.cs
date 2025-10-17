@@ -12,18 +12,24 @@ public class Simple : Goal
     
     public override int RecordEvent()
     {
+        _isComplete = true;
+        return _points;
         
     }
 
     public override bool IsComplete()
     {
-        _isComplete = true;
-
+        return _isComplete;
     }
 
-    public override string GetDisplayString()
+    public override void GetDisplayString()
     {
-        
+        Console.WriteLine("--- Goal ---");
+        Console.WriteLine(_name);
+        Console.WriteLine(_summary);
+        Console.WriteLine($"It is worth {_points} points.");
+        Console.WriteLine("--- Goal End ---");
+
     }
 
 }

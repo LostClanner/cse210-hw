@@ -20,6 +20,6 @@ public abstract class Goal
 
     public abstract bool IsComplete();
 
-    public abstract string GetDisplayString();
+    public abstract void GetDisplayString();
 
 }
