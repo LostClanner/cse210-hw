@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 
 public class Menu
@@ -8,11 +9,16 @@ public class Menu
 
 
     public void ListGoals()
-    {  
+    {
+        int i = 0;
         foreach (Goal goal in _goal)
         {
             goal.GetDisplayString();
+            i++;
         }
+        Console.WriteLine("");
+        i = i * 100;
+        Thread.Sleep(i);
 
 
     }
