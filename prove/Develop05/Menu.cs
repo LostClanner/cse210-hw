@@ -24,7 +24,7 @@ public class Menu
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.WriteLine("Please select 1-3");
+        Console.Write("Please select 1-3: ");
         string choice = Console.ReadLine();
 
         //All the goals have this
@@ -36,6 +36,7 @@ public class Menu
 
         Console.WriteLine("How many points should the goal be worth?\n");
         int points = int.Parse(Console.ReadLine());
+        Console.Clear();
 
         //this one is case specsific
         switch (choice)

@@ -28,7 +28,8 @@ public class Simple : Goal
         Console.WriteLine(_name);
         Console.WriteLine(_summary);
         Console.WriteLine($"It is worth {_points} points.");
-        Console.WriteLine("--- Goal End ---");
+        Console.WriteLine("--- End ---");
+        Console.WriteLine("");
 
     }
 
