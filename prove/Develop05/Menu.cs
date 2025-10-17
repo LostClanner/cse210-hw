@@ -17,7 +17,7 @@ public class Menu
             i++;
         }
         Console.WriteLine("");
-        i = i * 100;
+        i = i * 1000;
         Thread.Sleep(i);
 
 
