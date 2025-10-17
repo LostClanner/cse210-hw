@@ -17,7 +17,7 @@ public class Menu
 
     }
 
-    private void MakeGoals()
+    protected void MakeGoals()
     {
         Console.Clear();
         Console.WriteLine("What type of goal would you like to make?");
