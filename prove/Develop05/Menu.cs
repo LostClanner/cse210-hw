@@ -7,7 +7,7 @@ public class Menu
     private int _userPoints;
 
 
-    private void ListGoals()
+    public void ListGoals()
     {  
         foreach (Goal goal in _goal)
         {
