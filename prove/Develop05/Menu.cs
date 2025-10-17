@@ -10,17 +10,11 @@ public class Menu
 
     public void ListGoals()
     {
-        int i = 0;
         foreach (Goal goal in _goal)
         {
             goal.GetDisplayString();
-            i++;
+            Thread.Sleep(1500);
         }
-        Console.WriteLine("");
-        i = i * 1000;
-        Thread.Sleep(i);
-
-
     }
 
     public void MakeGoals()
