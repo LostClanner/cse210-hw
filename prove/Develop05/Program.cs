@@ -24,6 +24,8 @@ class Program
                     break;
 
                 case 2:
+                    ListGoals();
+                    break;
 
                 case 0:
 
