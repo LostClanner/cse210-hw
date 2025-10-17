@@ -11,7 +11,7 @@ public class Menu
     {  
         foreach (Goal goal in _goal)
         {
-            
+            goal.GetDisplayString();
         }
 
 
