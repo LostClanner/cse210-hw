@@ -1,7 +1,7 @@
 using System;
 
 
-abstract class Goal
+public abstract class Goal
 {
 
     protected string _name;
@@ -16,10 +16,10 @@ abstract class Goal
         _points = points;
     }
 
-    abstract int RecordEvent();
+    public abstract int RecordEvent();
 
-    abstract bool IsComplete();
+    public abstract bool IsComplete();
 
-    abstract string GetDisplayString();
+    public abstract string GetDisplayString();
 
 }

@@ -4,9 +4,9 @@ using System;
 
 public class Simple : Goal
 {
-    private bool _isComplete;
+    private bool _isComplete = false;
 
-    public Goal(string name, string summary, int points) : base(name, summary, points)
+    public Simple(string name, string summary, int points) : base(name, summary, points)
     {
     }
     
@@ -17,7 +17,8 @@ public class Simple : Goal
 
     public override bool IsComplete()
     {
-        
+        _isComplete = true;
+
     }
 
     public override string GetDisplayString()
