@@ -10,12 +10,15 @@ public class Menu
 
     public void ListGoals()
     {
+        int i = 0;
         Console.Clear();
         Console.WriteLine("These are your goals");
         foreach (Goal goal in _goal)
         {
+            Console.WriteLine($"--- Goal #{i} ---");
             Console.WriteLine(goal.GetDisplayString());
             Thread.Sleep(1200);
+            i++;
         }
     }
 
@@ -75,7 +78,19 @@ public class Menu
 
     private void CompleteGoals()
     {
+        Console.WriteLine("Which goal did you complete?");
+        Thread.Sleep(1000);
+        ListGoals();
+        Console.Write("Enter the number of the goal");
+        int i = int.Parse(Console.ReadLine());
+        i--;
 
+        Goal selectGoal = _goal[i];
+        int pointsScored = selectGoal.RecordEvent();
+        _userPoints += pointsScored;
+
+        Console.WriteLine($"You have earned {pointsScored} points!");
+        Console.WriteLine($"That brings you total to {_userPoints}!"); 
     }
 
     private void SaveGoals()

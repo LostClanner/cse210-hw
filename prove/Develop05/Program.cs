@@ -12,11 +12,11 @@ class Program
 
         while (isRunning)
         {
-            Console.Clear();
             Console.WriteLine("Welcome to Goal Setter Quest");
             Console.WriteLine("Please select what you would like to do");
             Console.WriteLine("1. Make a new goal");
             Console.WriteLine("2. List all of your goals");
+            Console.WriteLine("3. Mark a goal complete");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
             choice = int.Parse(Console.ReadLine());
@@ -29,6 +29,10 @@ class Program
 
                 case 2:
                     testMenu.ListGoals();
+                    break;
+
+                case 3:
+                    testMenu.MakeGoals();
                     break;
 
                 case 0:
