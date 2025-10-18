@@ -15,7 +15,7 @@ public class Simple : Goal
     public override int RecordEvent()
     {
         _isComplete = true;
-        return _points;
+        return Points;
         
     }
 
@@ -31,7 +31,7 @@ public class Simple : Goal
         {
             completed = "[x]";
         }
-        string display = $"{completed} {_name}, {_summary}. And it's worth {_points} points!";
+        string display = $"{completed} {Name}, {Summary}. And it's worth {Points} points!";
         return display;
     }
 

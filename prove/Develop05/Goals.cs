@@ -1,19 +1,22 @@
 using System;
-
+using System.Text.Json.Serialization;
+[JsonDerivedType(typeof(Simple), "simple")]
+[JsonDerivedType(typeof(Eternal), "eternal")]
+[JsonDerivedType(typeof(Checklist), "checklist")]
 
 public abstract class Goal
 {
 
-    protected string _name;
-    protected string _summary;
-    protected int _points;
+    public string Name { get; set; }
+    public string Summary { get; set; }
+    public int Points { get; set; }
 
 
     public Goal(string name, string summary, int points)
     {
-        _name = name;
-        _summary = summary;
-        _points = points;
+        Name = name;
+        Summary = summary;
+        Points = points;
     }
 
     public abstract int RecordEvent();

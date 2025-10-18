@@ -12,7 +12,7 @@ public class Eternal : Goal
     
     public override int RecordEvent()
     {
-        return _points;
+        return Points;
         
     }
 
@@ -23,7 +23,7 @@ public class Eternal : Goal
 
     public override string GetDisplayString()
     {
-        string display = $"[@] {_name}, {_summary}.";
+        string display = $"[@] {Name}, {Summary}.";
         return display;
     }
 
