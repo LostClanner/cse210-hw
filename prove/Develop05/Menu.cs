@@ -15,7 +15,7 @@ public class Menu
         foreach (Goal goal in _goal)
         {
             Console.WriteLine(goal.GetDisplayString());
-            Thread.Sleep(1500);
+            Thread.Sleep(1200);
         }
     }
 
@@ -29,21 +29,22 @@ public class Menu
         Console.Write("Please select 1-3: ");
         string choice = Console.ReadLine();
 
-        //All the goals have this
-        Console.WriteLine("What's the name of the goal?\n");
+        Console.Write("What's the name of the goal? ");
         string name = Console.ReadLine();
 
-        Console.WriteLine("How are you going to complete this goal?\n");
+        Console.Write("How are you going to complete this goal? ");
         string summary = Console.ReadLine();
 
-        Console.WriteLine("How many points should the goal be worth?\n");
-        int points = int.Parse(Console.ReadLine());
+
         Console.Clear();
 
         //this one is case specsific
         switch (choice)
         {
             case "1":
+
+                Console.Write("How many points should the goal be worth? ");
+                int points = int.Parse(Console.ReadLine());
                 Simple simpleGoal = new Simple(name, summary, points);
                 _goal.Add(simpleGoal);
                 break;
