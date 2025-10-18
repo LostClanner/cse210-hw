@@ -48,10 +48,10 @@ public class Menu
                 _goal.Add(simpleGoal);
                 break;
 
-            // case "2":
-            //     Eternal eternalGoal = new Eternal(name, summary, points);
-            //     _goal.Add(eternalGoal);
-            //     break;
+            case "2":
+                Eternal eternalGoal = new Eternal(name, summary);
+                _goal.Add(eternalGoal);
+                break;
             // case "3":
             //     Checklist checklistGoal = new Checklist(name, summary, points, );
             //     _goal.Add(checklistGoal);

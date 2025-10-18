@@ -4,24 +4,24 @@ using System;
 
 public class Eternal : Goal
 {
-    public Eternal(string name, string summary, int points) : base(name, summary, points)
+    public Eternal(string name, string summary) : base(name, summary, 0)
     {
     }
     
     public override int RecordEvent()
     {
-        _isComplete = true;
         return _points;
         
     }
 
     public override bool IsComplete()
     {
-        return _isComplete;
+        return false;
     }
 
     public override string GetDisplayString()
     {
-
+        string display = $"[@] {_name}, {_summary}.";
+    }
 
 }
