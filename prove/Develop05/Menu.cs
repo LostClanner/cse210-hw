@@ -92,9 +92,14 @@ public class Menu
         _userPoints += pointsScored;
 
         Console.WriteLine($"You have earned {pointsScored} points!");
-        Console.WriteLine($"That brings you total to {_userPoints}!"); 
+        Console.WriteLine($"That brings you total to {_userPoints}!");
     }
 
+
+
+    //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/overview
+    //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/how-to
+    //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism
     private void SaveGoals()
     {
         Console.WriteLine("What file to you want to save to?\nEX: Goals.json (must be .json)");
