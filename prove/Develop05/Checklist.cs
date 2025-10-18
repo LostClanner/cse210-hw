@@ -45,7 +45,7 @@ public class Checklist : Goal
         {
             completed = "[x]";
         }
-        string display = $"{completed} {_name}, {_summary}. And it's worth {_points} points!";
+        string display = $"{completed} {_name}, {_summary}. And it's worth {_points} points!\nYou have completed the goal {_currentCount}/{_targetCount}";
         return display;
     }
 

@@ -55,10 +55,17 @@ public class Menu
                 _goal.Add(eternalGoal);
                 Console.Clear();
                 break;
-            // case "3":
-            //     Checklist checklistGoal = new Checklist(name, summary, points, );
-            //     _goal.Add(checklistGoal);
-            //     break;
+            case "3":
+                Console.Write("How many times do you want to complete this goal? ");
+                int targetCount = int.Parse(Console.ReadLine());
+                Console.Write("How many points should you get each time? ");
+                int point = int.Parse(Console.ReadLine());
+                Console.Write("How many bonus points for completing the whole thing? ");
+                int bonusPoints = int.Parse(Console.ReadLine());
+
+                Checklist checklistGoal = new Checklist(name, summary, point, bonusPoints, targetCount);
+                _goal.Add(checklistGoal);
+                break;
             
         }
 
