@@ -47,7 +47,7 @@ public class Menu
 
         switch (choice)
         {
-            case 1:
+            case "1":
                 Console.Write("How many points should the goal be worth? ");
                 int points = int.Parse(Console.ReadLine());
                 Simple simpleGoal = new Simple(name, summary, points);
@@ -55,13 +55,13 @@ public class Menu
                 Console.Clear();
                 break;
 
-            case 2:
+            case "2":
                 Eternal eternalGoal = new Eternal(name, summary);
                 _goal.Add(eternalGoal);
                 Console.Clear();
                 break;
 
-            case 3:
+            case "3":
                 Console.Write("How many times do you want to complete this goal? ");
                 int targetCount = int.Parse(Console.ReadLine());
                 Console.Write("How many points should you get each time? ");
@@ -73,7 +73,7 @@ public class Menu
                 _goal.Add(checklistGoal);
                 break;
 
-            case 4:
+            case "4":
                 Console.Write("How many points should the bad habbit subtract? ");
                 int minusPoints = int.Parse(Console.ReadLine());
                 if(minusPoints > 0)
@@ -83,6 +83,10 @@ public class Menu
                 HabbitBreaker habbitBreaker = new HabbitBreaker(name, summary, minusPoints);
                 _goal.Add(habbitBreaker);
                 Console.Clear();
+                break;
+            default:
+                Console.WriteLine("Invalid response");
+                Thread.Sleep(1200);
                 break;
             
         }
