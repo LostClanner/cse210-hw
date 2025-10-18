@@ -10,7 +10,7 @@ public class Menu
 
     public void ListGoals()
     {
-        int i = 0;
+        int i = 1;
         Console.Clear();
         Console.WriteLine("These are your goals");
         foreach (Goal goal in _goal)
@@ -41,7 +41,6 @@ public class Menu
 
 
 
-        //this one is case specsific
         switch (choice)
         {
             case "1":
@@ -75,7 +74,7 @@ public class Menu
 
 
     }
-
+    //please fix this later
     public void CompleteGoals()
     {
         Console.WriteLine("Which goal did you complete?");
@@ -85,6 +84,7 @@ public class Menu
         int i = int.Parse(Console.ReadLine());
         i--;
 
+        //needs some sort loop or checker or both
         Goal selectGoal = _goal[i];
         int pointsScored = selectGoal.RecordEvent();
         _userPoints += pointsScored;
