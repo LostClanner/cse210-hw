@@ -32,6 +32,10 @@ class Program
                     break;
 
                 case 0:
+                    isRunning = false;
+                    Console.WriteLine("Have a great day!");
+                    Thread.Sleep(1200);
+                    break;
 
                 default:
                     Console.WriteLine("Incorrect answer, please type a real number");

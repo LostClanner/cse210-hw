@@ -36,7 +36,7 @@ public class Menu
         string summary = Console.ReadLine();
 
 
-        Console.Clear();
+
 
         //this one is case specsific
         switch (choice)
@@ -47,11 +47,13 @@ public class Menu
                 int points = int.Parse(Console.ReadLine());
                 Simple simpleGoal = new Simple(name, summary, points);
                 _goal.Add(simpleGoal);
+                Console.Clear();
                 break;
 
             case "2":
                 Eternal eternalGoal = new Eternal(name, summary);
                 _goal.Add(eternalGoal);
+                Console.Clear();
                 break;
             // case "3":
             //     Checklist checklistGoal = new Checklist(name, summary, points, );
