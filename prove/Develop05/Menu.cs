@@ -76,7 +76,7 @@ public class Menu
 
     }
 
-    private void CompleteGoals()
+    public void CompleteGoals()
     {
         Console.WriteLine("Which goal did you complete?");
         Thread.Sleep(1000);
