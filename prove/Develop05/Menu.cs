@@ -100,7 +100,7 @@ public class Menu
     //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/overview
     //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/how-to
     //https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism
-    private void SaveGoals()
+    public void SaveGoals()
     {
         Console.WriteLine("What file to you want to save to?\nEX: Goals.json (must be .json)");
         string filename = Console.ReadLine();
@@ -115,30 +115,35 @@ public class Menu
         string jsonString = JsonSerializer.Serialize(data, options);
         File.WriteAllText(filename, jsonString);
 
+        Console.WriteLine($"Save to {filename}!");
+        Thread.Sleep(1200);
 
     }
     
-    private void LoadGoals()
+    public void LoadGoals()
     {
+        Console.Write("What file would you like to load from? ");
+        string filename = Console.ReadLine();
 
-        // if (File.Exists(filename))
-        // {
-        //     Console.WriteLine("Loading goals from file...");
-        //     string jsonString = File.ReadAllText(filename);
+        if (File.Exists(filename))
+        {
+            Console.WriteLine("Loading goals from file...");
+            string jsonString = File.ReadAllText(filename);
             
-        //     SaveData data = JsonSerializer.Deserialize<SaveData>(jsonString);
+            SaveGoals data = JsonSerializer.Deserialize<SaveGoals>(jsonString);
 
-        //     _userPoints = data.UserPoints;
-        //     _goal = data.Goals;
-        // }
-        // else
-        // {
-        //     Console.WriteLine("Error: That file does not exist.");
-        //     Thread.Sleep(2000);
-        // }
+            _userPoints = data.UserPoints;
+            _goal = data.Goals;
+            Console.WriteLine("Sucsess! Loaded goals!");
+        }
+        else
+        {
+            Console.WriteLine("Error: That file does not exist.");
+            Thread.Sleep(2000);
+        }
     }
         
-    }
+    
 
 }
     // public void Run()

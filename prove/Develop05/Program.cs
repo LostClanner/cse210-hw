@@ -17,6 +17,8 @@ class Program
             Console.WriteLine("1. Make a new goal");
             Console.WriteLine("2. List all of your goals");
             Console.WriteLine("3. Mark a goal complete");
+            Console.WriteLine("4. Load goals");
+            Console.WriteLine("4. Save goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
             choice = int.Parse(Console.ReadLine());
@@ -33,6 +35,12 @@ class Program
 
                 case 3:
                     testMenu.CompleteGoals();
+                    break;
+                case 4:
+                    testMenu.LoadGoals();
+                    break;
+                case 5:
+                    testMenu.SaveGoals();
                     break;
 
                 case 0:
