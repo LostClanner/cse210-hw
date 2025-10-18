@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 
 
@@ -8,7 +9,7 @@ public class Checklist : Goal
     private int _bonusPoints;
     private int _targetCount;
     private int _currentCount = 0;
-
+    [JsonConstructor]
     public Checklist(string name, string summary, int points, int bonusPoints, int targetCount) : base(name, summary, points)
     {
         _bonusPoints = bonusPoints;

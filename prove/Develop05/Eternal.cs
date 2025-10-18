@@ -1,9 +1,11 @@
 using System;
+using System.Text.Json.Serialization;
 
 
 
 public class Eternal : Goal
 {
+    [JsonConstructor]
     public Eternal(string name, string summary) : base(name, summary, 0)
     {
     }

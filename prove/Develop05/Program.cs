@@ -18,7 +18,7 @@ class Program
             Console.WriteLine("2. List all of your goals");
             Console.WriteLine("3. Mark a goal complete");
             Console.WriteLine("4. Load goals");
-            Console.WriteLine("4. Save goals");
+            Console.WriteLine("5. Save goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
             choice = int.Parse(Console.ReadLine());

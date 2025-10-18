@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 
 
@@ -6,6 +7,7 @@ public class Simple : Goal
 {
     private bool _isComplete = false;
 
+    [JsonConstructor]
     public Simple(string name, string summary, int points) : base(name, summary, points)
     {
     }
