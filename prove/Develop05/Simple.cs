@@ -29,7 +29,7 @@ public class Simple : Goal
         {
             completed = "[x]";
         }
-        string display = $"{completed} {_name} {_summary}. And it's worth {_points} points!";
+        string display = $"{completed} {_name}, {_summary}. And it's worth {_points} points!";
         return display;
     }
 
