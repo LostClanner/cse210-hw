@@ -1,5 +1,7 @@
 using System;
 using System.Threading;
+using System.Text.Json;
+using System.Collections.Generic;
 
 
 public class Menu
@@ -95,11 +97,41 @@ public class Menu
 
     private void SaveGoals()
     {
+        Console.WriteLine("What file to you want to save to?\nEX: Goals.json (must be .json)");
+        string filename = Console.ReadLine();
+
+        SaveGoals data = new SaveGoals
+        {
+            UserPoints = _userPoints,
+            Goals = _goal
+        };
+
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string jsonString = JsonSerializer.Serialize(data, options);
+        File.WriteAllText(filename, jsonString);
+
 
     }
     
     private void LoadGoals()
     {
+
+        // if (File.Exists(filename))
+        // {
+        //     Console.WriteLine("Loading goals from file...");
+        //     string jsonString = File.ReadAllText(filename);
+            
+        //     SaveData data = JsonSerializer.Deserialize<SaveData>(jsonString);
+
+        //     _userPoints = data.UserPoints;
+        //     _goal = data.Goals;
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Error: That file does not exist.");
+        //     Thread.Sleep(2000);
+        // }
+    }
         
     }
 
