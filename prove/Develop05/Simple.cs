@@ -22,15 +22,15 @@ public class Simple : Goal
         return _isComplete;
     }
 
-    public override void GetDisplayString()
+    public override string GetDisplayString()
     {
-        Console.WriteLine("--- Goal ---");
-        Console.WriteLine(_name);
-        Console.WriteLine(_summary);
-        Console.WriteLine($"It is worth {_points} points.");
-        Console.WriteLine("--- End ---");
-        Console.WriteLine("");
-
+        string completed = "[]";
+        if (_isComplete)
+        {
+            completed = "[x]";
+        }
+        string display = $"{completed} {_name} {_summary}. And it's worth {_points} points!";
+        return display;
     }
 
 }

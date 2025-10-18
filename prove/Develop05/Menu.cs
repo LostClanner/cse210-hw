@@ -10,9 +10,11 @@ public class Menu
 
     public void ListGoals()
     {
+        Console.Clear();
+        Console.WriteLine("These are your goals");
         foreach (Goal goal in _goal)
         {
-            goal.GetDisplayString();
+            Console.WriteLine(goal.GetDisplayString());
             Thread.Sleep(1500);
         }
     }
