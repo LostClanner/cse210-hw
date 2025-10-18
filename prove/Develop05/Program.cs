@@ -32,7 +32,7 @@ class Program
                     break;
 
                 case 3:
-                    testMenu.MakeGoals();
+                    testMenu.CompleteGoals();
                     break;
 
                 case 0:
