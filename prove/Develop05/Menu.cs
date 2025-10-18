@@ -19,9 +19,10 @@ public class Menu
         {
             Console.WriteLine($"--- Goal #{i} ---");
             Console.WriteLine(goal.GetDisplayString());
-            Thread.Sleep(1200);
             i++;
         }
+        Console.Write("press enter to continue: ");
+        Console.ReadLine();
     }
 
     public void MakeGoals()
@@ -76,7 +77,6 @@ public class Menu
 
 
     }
-    //please fix this later
     public void CompleteGoals()
     {
         Console.WriteLine("Which goal did you complete?");
@@ -86,13 +86,20 @@ public class Menu
         int i = int.Parse(Console.ReadLine());
         i--;
 
-        //needs some sort loop or checker or both
-        Goal selectGoal = _goal[i];
-        int pointsScored = selectGoal.RecordEvent();
-        _userPoints += pointsScored;
+        if (i >= 0 && i < _goal.Count)
+        {
+            Goal selectGoal = _goal[i];
+            int pointsScored = selectGoal.RecordEvent();
+            _userPoints += pointsScored;
 
-        Console.WriteLine($"You have earned {pointsScored} points!");
-        Console.WriteLine($"That brings you total to {_userPoints}!");
+            Console.WriteLine($"You have earned {pointsScored} points!");
+            Console.WriteLine($"That brings you total to {_userPoints}!");
+        }
+        else
+        {
+            Console.WriteLine("Invalid number");
+            Thread.Sleep(1200);
+        }
     }
 
 
@@ -115,7 +122,7 @@ public class Menu
         string jsonString = JsonSerializer.Serialize(data, options);
         File.WriteAllText(filename, jsonString);
 
-        Console.WriteLine($"Save to {filename}!");
+        Console.WriteLine($"Saved to {filename}!");
         Thread.Sleep(1200);
 
     }
@@ -133,13 +140,13 @@ public class Menu
             SaveGoals data = JsonSerializer.Deserialize<SaveGoals>(jsonString);
 
             _userPoints = data.UserPoints;
-            _goal = data.Goals;
-            Console.WriteLine("Sucsess! Loaded goals!");
+            _goal = data.Goals; 
+            Console.WriteLine("Success! Loaded goals!");
         }
         else
         {
             Console.WriteLine("Error: That file does not exist.");
-            Thread.Sleep(2000);
+            Thread.Sleep(1200);
         }
     }
         

@@ -18,12 +18,16 @@ public class Checklist : Goal
     
     public override int RecordEvent()
     {
+        if (_isComplete)
+        {
+            Console.WriteLine("This goal is already completed!");
+            return 0;
+        }
         
         if(_currentCount == _targetCount)
         {
             _isComplete = true;
             return _bonusPoints + Points;
-
         }
         else
         {
