@@ -12,7 +12,7 @@ class Program
 
         while (isRunning)
         {
-            
+            Console.Clear();
             Console.WriteLine("Welcome to Goal Setter Quest");
             Console.WriteLine("Please select what you would like to do");
             Console.WriteLine("1. Make a new goal");
