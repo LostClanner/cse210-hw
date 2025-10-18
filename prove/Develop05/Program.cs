@@ -1,7 +1,8 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
-
+//Added a negitive goal to help people break bad habbits
+//That is for the strech goal
 class Program
 {
     static void Main(string[] args)
