@@ -22,6 +22,7 @@ public class Eternal : Goal
     public override string GetDisplayString()
     {
         string display = $"[@] {_name}, {_summary}.";
+        return display;
     }
 
 }
