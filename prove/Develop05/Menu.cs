@@ -21,6 +21,7 @@ public class Menu
             Console.WriteLine(goal.GetDisplayString());
             i++;
         }
+        Console.WriteLine($"You currently have {_userPoints} points!");
         Console.Write("press enter to continue: ");
         Console.ReadLine();
     }
