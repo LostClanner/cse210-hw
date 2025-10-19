@@ -37,7 +37,7 @@ public class Menu
         Console.Write("Please select 1-3: ");
         string choice = Console.ReadLine();
 
-        Console.Write("What's the name of the goal? ");
+        Console.Write("What's the name of the goal/habbit? ");
         string name = Console.ReadLine();
 
         Console.Write("How are you going to complete this goal? ");
@@ -110,7 +110,7 @@ public class Menu
             int pointsScored = selectGoal.RecordEvent();
             _userPoints += pointsScored;
 
-            Console.WriteLine($"You have earned {pointsScored} points!");
+            Console.WriteLine($"You have got {pointsScored} points.");
             Console.WriteLine($"That brings you total to {_userPoints}!");
         }
         else
