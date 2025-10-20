@@ -1,22 +1,23 @@
 using System;
 
+public enum CardNumber { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine }
+public enum CardColor { Red, Yellow, Green, Blue, Black }
+
 
 
 public abstract class Card
 {
-    public enum CardColor { Red, Yellow, Green, Blue, Black }
-    public enum CardNUmber {One, Two, Three, Four, Five, Six, Seven, Eight, Nine}
-    private CardColor _color;
-    private CardNUmber _number;
+    public CardColor _color { get; protected set; }
+    public CardNumber _number { get; protected set; }
 
-    public Card(CardColor color, CardNUmber number)
+    public Card(CardColor color, CardNumber number)
     {
         _color = color;
         _number = number;
     }
 
 
-    public bool CanPlayCard(string currentColor, int currentNumber)
+    public bool CanPlayCard(CardColor currentColor, CardNumber currentNumber)
     {
         if (_color == currentColor)
         {
