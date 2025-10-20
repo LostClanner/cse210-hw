@@ -61,7 +61,7 @@ public class Deck
     {
         foreach (Card card in _theDeck)
         {
-            Console.WriteLine(card);
+            Console.WriteLine(card.ToString());
         }
     }
 

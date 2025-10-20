@@ -41,7 +41,10 @@ public abstract class Card
     // protected abstract *IDKYET* SpecialCardEffect()
 
 
-    //public string ToString(){}
+    public override string ToString()
+    {
+        return $"{Color} {Number}";
+    }
 
 
 
