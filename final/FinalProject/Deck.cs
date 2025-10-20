@@ -54,11 +54,7 @@ public class Deck
     {
 
     }
-    
-    // public void PlaceCardFromDeck()
-    // {
-        
-    // }
+
 
     //temp to see
     public void DisplayDeck()
