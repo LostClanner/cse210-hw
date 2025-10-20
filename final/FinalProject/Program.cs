@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
+        Deck d1 = new Deck();
+        d1.MakeNewDeck();
+
+        
     }
 }
