@@ -38,15 +38,7 @@ public class Deck
             i++;
         }
     }
-
-
-
-    //----This is the end of the deck building logic----
-
-    
-
-
-    private void ShuffleDeck()
+    private void ShuffleDeck() //https://github.com/JDSherbert/Fisher-Yates-Shuffle
     {
         Random rnd = new Random();
 
@@ -59,6 +51,13 @@ public class Deck
         }
         
     }
+
+    //----This is the end of the deck building logic----
+
+    
+
+
+
 
     public void DrawCard()
     {
