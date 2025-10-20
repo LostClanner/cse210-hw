@@ -69,9 +69,9 @@ public class Deck
     //temp to see
     public void DisplayDeck()
     {
-        foreach (Card in _theDeck)
+        foreach (Card card in _theDeck)
         {
-            Console.WriteLine(_theDeck);
+            Console.WriteLine(card);
         }
     }
 
