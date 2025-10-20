@@ -10,10 +10,4 @@ public class BasicCard : Card
         
     }
 
-
-
-
-
-
-
 }

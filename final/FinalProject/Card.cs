@@ -14,9 +14,24 @@ public abstract class Card
     }
 
 
-    protected bool CanPlayCard()
+    public bool CanPlayCard(string currentColor, int currentNumber)
     {
-        return true;
+        if (_color == currentColor)
+        {
+            return true;
+        }
+        else if (_number == currentNumber)
+        {
+            return true;
+        }
+        else if (_color == "black")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 
