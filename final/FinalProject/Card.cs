@@ -4,10 +4,12 @@ using System;
 
 public abstract class Card
 {
-    private string _color;
-    private int _number;
+    public enum CardColor { Red, Yellow, Green, Blue, Black }
+    public enum CardNUmber {One, Two, Three, Four, Five, Six, Seven, Eight, Nine}
+    private CardColor _color;
+    private CardNUmber _number;
 
-    public Card(string color, int number)
+    public Card(CardColor color, CardNUmber number)
     {
         _color = color;
         _number = number;
@@ -24,7 +26,7 @@ public abstract class Card
         {
             return true;
         }
-        else if (_color == "black")
+        else if (_color == CardColor.Black)
         {
             return true;
         }
