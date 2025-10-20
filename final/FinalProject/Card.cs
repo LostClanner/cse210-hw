@@ -7,27 +7,27 @@ public enum CardColor { Red, Yellow, Green, Blue, Black }
 
 public abstract class Card
 {
-    public CardColor _color { get; protected set; }
-    public CardNumber _number { get; protected set; }
+    public CardColor Color { get; protected set; }
+    public CardNumber Number { get; protected set; }
 
     public Card(CardColor color, CardNumber number)
     {
-        _color = color;
-        _number = number;
+        Color = color;
+        Number = number;
     }
 
 
     public bool CanPlayCard(CardColor currentColor, CardNumber currentNumber)
     {
-        if (_color == currentColor)
+        if (Color == currentColor)
         {
             return true;
         }
-        else if (_number == currentNumber)
+        else if (Number == currentNumber)
         {
             return true;
         }
-        else if (_color == CardColor.Black)
+        else if (Color == CardColor.Black)
         {
             return true;
         }
@@ -38,11 +38,10 @@ public abstract class Card
     }
 
 
-    // protected *IDKYET* SpecialCardEffect()
-    // {
+    // protected abstract *IDKYET* SpecialCardEffect()
 
-    //     return *IDKYET *;
-    // }
+
+    //public string ToString(){}
 
 
 
