@@ -21,6 +21,7 @@ public class Deck
         {
             AddNumberCard(color);
         }
+        ShuffleDeck();
 
 
 
@@ -45,8 +46,17 @@ public class Deck
     
 
 
-    public void ShuffleDeck()
+    private void ShuffleDeck()
     {
+        Random rnd = new Random();
+
+        int n = _theDeck.Count;
+        for (int i = n - 1; i > 0; i--)
+        {
+            int k = rnd.Next(i + 1);
+
+            (_theDeck[k], _theDeck[i]) = (_theDeck[i], _theDeck[k]);
+        }
         
     }
 
