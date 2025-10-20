@@ -6,7 +6,8 @@ class Program
     {
         Deck d1 = new Deck();
         d1.MakeNewDeck();
+        d1.DisplayDeck();
 
-        
+
     }
 }

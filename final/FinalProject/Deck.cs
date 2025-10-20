@@ -6,7 +6,7 @@ using System.Drawing;
 
 public class Deck
 {
-    private List<Card> _theDeck;
+    private List<Card> _theDeck = new List<Card>();
     public Deck()
     {
 
@@ -37,12 +37,6 @@ public class Deck
             i++;
         }
     }
-
-
-
-
-
-
 
 
 
