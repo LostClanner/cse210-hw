@@ -20,8 +20,17 @@ public class Deck
         foreach (var color in colors)
         {
             AddNumberCard(color);
+            AddSpecialCard(color);
         }
-        ShuffleDeck();
+        int i = 1;
+        while (i < 5)
+        {
+            _theDeck.Add(new WildCard());
+            _theDeck.Add(new DrawFourWildCard());
+            i++;
+        }
+
+        // ShuffleDeck();
 
 
 
@@ -37,6 +46,20 @@ public class Deck
             _theDeck.Add(new NumberCard(color, (CardValue)i));
             i++;
         }
+    }
+
+    private void AddSpecialCard(CardColor color)
+    {
+        int i = 1;
+        while (i < 3)
+        {
+            _theDeck.Add(new SkipCard(color));
+            _theDeck.Add(new ReverseCard(color));
+            _theDeck.Add(new DrawTwoCard(color));
+            i++;
+        }
+
+
     }
     private void ShuffleDeck() //https://github.com/JDSherbert/Fisher-Yates-Shuffle
     {
