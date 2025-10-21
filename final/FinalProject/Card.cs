@@ -1,7 +1,10 @@
 using System;
 
 public enum CardValue
- { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine }
+{
+    Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine,
+    Skip, Reverse, DrawTwo, DrawFour
+}
 public enum CardColor { Red, Yellow, Green, Blue, Black }
 
 
