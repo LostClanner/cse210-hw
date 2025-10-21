@@ -16,9 +16,12 @@ public class Player
         _playerHand.Remove(card);
     }
 
-    public void AddCardToHand(Card card)
+    public void AddCardToHand(Card card, int amount)
     {
-        _playerHand.Add(card);
+        while (amount > 0)
+        {
+            _playerHand.Add(card);
+        }
     }
 
 
