@@ -21,11 +21,24 @@ public class Player
         _playerHand.Add(card);
     }
 
+
+    //This needs a lot of work, dont forget to fix it
     public void GetHand()
     {
         foreach (Card card in _playerHand)
         {
-            Console.Write($"{card.ToString} ");
+            if (card.CanPlayCard(CardColor.Yellow, CardValue.Seven)) // this well need to be changed before the final implamentaion
+            {
+                Console.WriteLine("Playable cards");
+                Console.Write($"{card.ToString} ");
+
+            }
+            else
+            {
+                Console.WriteLine("Cards unable to be played");
+                Console.Write($"{card.ToString} ");
+            }
+
         }
     }
     
