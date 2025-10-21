@@ -3,11 +3,11 @@ using System;
 
 public class Game
 {
-    private _deck
-    private _players
-    private _discardPile
-    private _currentPlayer
-    private _isReversed
+    private Deck _deck;
+    // private List _players = new list of players;
+    private List<Card> _discardPile = new List<Card>();
+    // private Player _currentPlayer;
+    private bool _isReversed;
 
 
 
