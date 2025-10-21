@@ -16,16 +16,16 @@ public class Player
 
     }
 
-    public void AddCardToHand()
+    public void AddCardToHand(Card card)
     {
-        
+        _playerHand.Add(card);
     }
 
     public void GetHand()
     {
         foreach (Card card in _playerHand)
         {
-            Console.Write($"{card} ");
+            Console.Write($"{card.ToString} ");
         }
     }
     
