@@ -30,7 +30,7 @@ public class Deck
             i++;
         }
 
-        // ShuffleDeck();
+        ShuffleDeck();
 
 
 
