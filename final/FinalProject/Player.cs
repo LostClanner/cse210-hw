@@ -25,7 +25,7 @@ public class Player
     {
         foreach (Card card in _playerHand)
         {
-            Console.Write($"{_playerHand} ");
+            Console.Write($"{card} ");
         }
     }
     
