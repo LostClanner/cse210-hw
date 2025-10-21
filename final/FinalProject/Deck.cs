@@ -33,8 +33,8 @@ public class Deck
 
         while (i < 10)
         {
-            _theDeck.Add(new BasicCard(color, (CardNumber)i));
-            _theDeck.Add(new BasicCard(color, (CardNumber)i));
+            _theDeck.Add(new NumberCard(color, (CardValue)i));
+            _theDeck.Add(new NumberCard(color, (CardValue)i));
             i++;
         }
     }

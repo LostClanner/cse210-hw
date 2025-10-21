@@ -1,6 +1,7 @@
 using System;
 
-public enum CardNumber { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine }
+public enum CardValue
+ { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine }
 public enum CardColor { Red, Yellow, Green, Blue, Black }
 
 
@@ -8,22 +9,22 @@ public enum CardColor { Red, Yellow, Green, Blue, Black }
 public abstract class Card
 {
     public CardColor Color { get; protected set; }
-    public CardNumber Number { get; protected set; }
+    public CardValue Value { get; protected set;  }
 
-    public Card(CardColor color, CardNumber number)
+    public Card(CardColor color, CardValue value)
     {
         Color = color;
-        Number = number;
+        Value = value;
     }
 
 
-    public bool CanPlayCard(CardColor currentColor, CardNumber currentNumber)
+    public bool CanPlayCard(CardColor currentColor, CardValue currentValue)
     {
         if (Color == currentColor)
         {
             return true;
         }
-        else if (Number == currentNumber)
+        else if (Value == currentValue)
         {
             return true;
         }
@@ -43,7 +44,7 @@ public abstract class Card
 
     public override string ToString()
     {
-        return $"{Color} {Number}";
+        return $"{Color} {Value}";
     }
 
 
