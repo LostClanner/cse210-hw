@@ -11,9 +11,9 @@ public class Player
         
     }
 
-    public void PlayCard()
+    public void PlayCard(Card card)
     {
-
+        _playerHand.Remove(card);
     }
 
     public void AddCardToHand(Card card)

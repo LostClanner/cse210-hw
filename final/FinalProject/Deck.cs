@@ -32,8 +32,6 @@ public class Deck
 
         ShuffleDeck();
 
-
-
     }
 
     private void AddNumberCard(CardColor color)
@@ -82,9 +80,10 @@ public class Deck
 
 
 
-    public void DrawCard()
+    public void DrawCard(Player player, Card currentCard)
     {
-
+        player.AddCardToHand(currentCard);
+        _theDeck.Remove(currentCard);
     }
 
 
