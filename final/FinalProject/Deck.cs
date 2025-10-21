@@ -37,7 +37,8 @@ public class Deck
 
     private void AddNumberCard(CardColor color)
     {
-        int i = 0;
+        int i = 1;
+        _theDeck.Add(new NumberCard(color, CardValue.Zero));
 
         while (i < 10)
         {

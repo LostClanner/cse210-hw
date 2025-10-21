@@ -1,6 +1,6 @@
 using System;
 
-public enum CardValue
+public enum CardValue //https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 {
     Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine,
     Skip, Reverse, DrawTwo, DrawFour, Wild

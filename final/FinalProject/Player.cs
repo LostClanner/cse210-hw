@@ -16,16 +16,16 @@ public class Player
         _playerHand.Remove(card);
     }
 
-    public void AddCardToHand(Card card, int amount)
+    public void AddCardToHand(Card card)
     {
-        while (amount > 0)
-        {
-            _playerHand.Add(card);
-        }
+
+        _playerHand.Add(card);
+
     }
 
 
     //This needs a lot of work, dont forget to fix it
+    //Fine for now, but it should return a list.
     public void GetHand()
     {
         foreach (Card card in _playerHand)
