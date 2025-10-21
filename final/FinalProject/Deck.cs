@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
 
 
 
@@ -80,10 +81,15 @@ public class Deck
 
 
 
-    public void DrawCard(Player player, Card currentCard)
+    public Card DrawCard()
     {
-        player.AddCardToHand(currentCard);
-        _theDeck.Remove(currentCard);
+        if(_theDeck.Count == 0)
+        {
+            //shuffle discard pile into the deck
+        }
+        Card cardToDraw = _theDeck[_theDeck.Count - 1];
+        _theDeck.RemoveAt(_theDeck.Count - 1);
+        return cardToDraw;
     }
 
 
