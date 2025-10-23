@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 public class Game
@@ -8,7 +10,8 @@ public class Game
     private List<Card> _discardPile = new List<Card>();
     private int _currentPlayerPosition = 0;
     private bool _isReversed = false;
-
+    private bool _hasPlayerWon = false;
+    private Card => _discardPile.Last();
 
 
     public Game()
@@ -38,18 +41,18 @@ public class Game
     {
         if (_isReversed)
         {
-            _currentPlayerPosition++;
+            _currentPlayerPosition--;
         }
         else
         {
-            _currentPlayerPosition--;
+            _currentPlayerPosition++;
         }
 
         if (_currentPlayerPosition >= _players.Count)
         {
             _currentPlayerPosition = 0;
         }
-        if(_currentPlayerPosition <= _players.Count)
+        if(_currentPlayerPosition < 0)
         {
             _currentPlayerPosition = _players.Count - 1;
         }
