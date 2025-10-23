@@ -6,8 +6,8 @@ public class Game
     private Deck _deck;
     private List<Player> _players = new List<Player>();
     private List<Card> _discardPile = new List<Card>();
-    // private Player _currentPlayer;
-    private bool _isReversed;
+    private int _currentPlayer = 0;
+    private bool _isReversed = false;
 
 
 
@@ -24,14 +24,35 @@ public class Game
         }
         // while (decks > 0)
         // {
-            
+
         // }
 
 
         //Someway to give all the players thier starting cards
-        
-        
 
+
+
+    }
+
+    private void NextPlayer()
+    {
+        if (_isReversed)
+        {
+            _currentPlayer++;
+        }
+        else
+        {
+            _currentPlayer--;
+        }
+
+        if (_currentPlayer >= _players.Count)
+        {
+            _currentPlayer = 0;
+        }
+        if(_currentPlayer <= _players.Count)
+        {
+            _currentPlayer = _players.Count - 1;
+        }
     }
 
     public void NextTurn()
