@@ -65,21 +65,21 @@ public class Game
     }
 
 
-    public void PlayerPlayCard()
+    public void PlayerPlayCard(Player currentPlayer )
     {
-        Player currentPlayer = _players[_currentPlayerPosition];
-        currentPlayer.GetHand();
-        // currentPlayer.PlayCard();
        
 
     }
 
-    public void PlayerDrawCard(Deck d1)
+    public void PlayerDrawCard(Player currentPlayer)
     {
-        Player currentPlayer = _players[_currentPlayerPosition];
-        Card drawnCard = d1.DrawCard();
+
+        Card drawnCard = _deck.DrawCard();
         currentPlayer.AddCardToHand(drawnCard);
-        currentPlayer.GetHand();
+
+        Console.WriteLine($"You drew: {drawnCard.ToString()}");
+
+        //add something if they are able to play it imideietly
 
     }
 
