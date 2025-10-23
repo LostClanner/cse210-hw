@@ -83,15 +83,18 @@ public class Game
     {
         Player currentPlayer = _players[_currentPlayerPosition];
         currentPlayer.GetHand();
-        /*P1*/.PlayCard();
+        currentPlayer.PlayCard();
        
 
     }
 
     public void PlayerDrawCard()
     {
-        /*P1*/.GetHand();
-        /*P1*/.AddCardToHand();
+        Player currentPlayer = _players[_currentPlayerPosition];
+
+        currentPlayer.AddCardToHand();
+        currentPlayer.GetHand();
+
     }
 
     public void HandelCardEffect()
