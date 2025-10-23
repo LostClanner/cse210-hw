@@ -91,13 +91,20 @@ public class Game
 
 
 
-    //Testing purposes only
 
     public void Run()
     {
-        Deck d1 = new Deck();
-        d1.MakeNewDeck();
-        d1.DisplayDeck();
+        Console.WriteLine("Starting a new game");
+        StartGame(4);
+
+        while (!_hasPlayerWon)
+        {
+            
+        }
+
+        Console.WriteLine("Game Over");
+        Console.Write("press enter to close: ");
+        Console.ReadLine();
     }
 
 }
