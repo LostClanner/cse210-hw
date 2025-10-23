@@ -11,28 +11,34 @@ public class Game
     private int _currentPlayerPosition = 0;
     private bool _isReversed = false;
     private bool _hasPlayerWon = false;
-    private Card => _discardPile.Last();
+    private Card TopofDiscardPile => _discardPile.Last();
 
 
     public Game()
     {
-
+        _deck = new Deck();
     }
 
-    public void StartGame(int players/*, int decks*/)
+    public void StartGame(int playerCount, int startingHandSize = 7/*how many decks you are wanting to play with*/)
     {
-        while (players > 0)
+        while (playerCount > 0)
         {
             _players.Add(new Player());
+            playerCount--;
+
         }
-        // while (decks > 0)
-        // {
+        int i = 0;
 
-        // }
-
-
-        //Someway to give all the players thier starting cards
-
+        while (i < startingHandSize)
+        {
+            foreach(Player player in _players)
+            {
+                player.AddCardToHand(_deck.DrawCard());
+            }
+            i++;
+        }
+        _discardPile.Add(_deck.DrawCard());
+        //What happends when a special card is drawn?
 
 
     }
