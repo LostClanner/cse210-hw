@@ -6,7 +6,7 @@ public class Game
     private Deck _deck;
     private List<Player> _players = new List<Player>();
     private List<Card> _discardPile = new List<Card>();
-    private int _currentPlayer = 0;
+    private int _currentPlayerPosition = 0;
     private bool _isReversed = false;
 
 
@@ -38,20 +38,20 @@ public class Game
     {
         if (_isReversed)
         {
-            _currentPlayer++;
+            _currentPlayerPosition++;
         }
         else
         {
-            _currentPlayer--;
+            _currentPlayerPosition--;
         }
 
-        if (_currentPlayer >= _players.Count)
+        if (_currentPlayerPosition >= _players.Count)
         {
-            _currentPlayer = 0;
+            _currentPlayerPosition = 0;
         }
-        if(_currentPlayer <= _players.Count)
+        if(_currentPlayerPosition <= _players.Count)
         {
-            _currentPlayer = _players.Count - 1;
+            _currentPlayerPosition = _players.Count - 1;
         }
     }
 
@@ -81,7 +81,7 @@ public class Game
 
     public void PlayerPlayCard()
     {
-        Player currentPlayer = _players[_currentPlayer];
+        Player currentPlayer = _players[_currentPlayerPosition];
         currentPlayer.GetHand();
         /*P1*/.PlayCard();
        
