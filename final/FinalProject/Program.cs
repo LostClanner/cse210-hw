@@ -4,9 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Deck d1 = new Deck();
-        d1.MakeNewDeck();
-        d1.DisplayDeck();
+        Game g1 = new Game();
+        g1.Run();
 
 
     }
