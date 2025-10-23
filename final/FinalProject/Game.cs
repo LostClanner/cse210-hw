@@ -34,7 +34,7 @@ public class Game
 
     }
 
-    private void NextPlayer()
+    private void NextTurn()
     {
         if (_isReversed)
         {
@@ -55,29 +55,6 @@ public class Game
         }
     }
 
-    public void NextTurn()
-    {
-
-        // if (player.CanPlayCard)
-        // {
-        //     PlayerPlayCard();
-        // }
-        // else
-        // {
-        //     PlayerDrawCard();
-        // }
-                                    //Something like this is needed--
-
-        // if (_isReversed)
-        // {
-        //     Player - 1
-        // }
-        // else
-        // {
-        //     Player + 1
-        // }
-
-    }
 
     public void PlayerPlayCard()
     {
