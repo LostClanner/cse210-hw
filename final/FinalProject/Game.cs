@@ -81,7 +81,8 @@ public class Game
 
     public void PlayerPlayCard()
     {
-        _players[_currentPlayer].GetHand();
+        Player currentPlayer = _players[_currentPlayer];
+        currentPlayer.GetHand();
         /*P1*/.PlayCard();
        
 
