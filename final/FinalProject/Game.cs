@@ -11,7 +11,7 @@ public class Game
     private int _currentPlayerPosition = 0;
     private bool _isReversed = false;
     private bool _hasPlayerWon = false;
-    private Card TopofDiscardPile => _discardPile.Last();
+    private Card TopOfDiscardPile => _discardPile.Last();
 
 
     public Game()
@@ -87,6 +87,33 @@ public class Game
     {
 
     }
+
+    private void TakeTurn()
+    {
+        Player currentPlayer = _players[_currentPlayerPosition];
+        Console.Clear();
+
+        Console.WriteLine($"----Player {currentPlayer}----");
+        Console.WriteLine($"top card is: {TopOfDiscardPile.ToString}");
+
+        currentPlayer.DisplayHand();
+
+        Card cardToPlay = currentPlayer.FindPlayableCard(TopOfDiscardPile);
+
+        if (cardToPlay == null)
+        {
+            Console.WriteLine("You have nothing to play");
+            PlayerDrawCard()
+        }
+
+        
+
+
+
+
+
+
+    }
     
 
 
@@ -99,7 +126,7 @@ public class Game
 
         while (!_hasPlayerWon)
         {
-            
+            TakeTurn();
         }
 
         Console.WriteLine("Game Over");
