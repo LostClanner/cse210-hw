@@ -25,9 +25,12 @@ public class Game
         {
             _players.Add(new Player());
             playerCount--;
-
         }
+
+        _deck.MakeNewDeck();    
+
         int i = 0;
+
 
         while (i < startingHandSize)
         {
@@ -101,7 +104,9 @@ public class Game
         Console.WriteLine($"----Player {_currentPlayerPosition}----");
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
 
-        currentPlayer.DisplayHand();
+        PlayerDisplayHand(currentPlayer);
+        
+
 
         Card cardToPlay = currentPlayer.FindPlayableCard(TopOfDiscardPile);
 
@@ -126,7 +131,7 @@ public class Game
         NextTurn();
         
     }
-    
+
 
 
 
@@ -139,11 +144,23 @@ public class Game
         while (!_hasPlayerWon)
         {
             TakeTurn();
+            Console.ReadLine();
         }
 
         Console.WriteLine("Game Over");
         Console.Write("press enter to close: ");
         Console.ReadLine();
+    }
+
+
+    private void PlayerDisplayHand(Player currentPlayer)
+    {
+        List<Card> playerHand = currentPlayer.GetHand();
+        foreach (Card card in playerHand)
+        {
+            Console.WriteLine("Your hand:");
+            Console.Write($"|{card}| ");
+        }
     }
 
 }
