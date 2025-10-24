@@ -1,6 +1,8 @@
 using System;
 using System.Drawing;
 using System.Reflection.Metadata.Ecma335;
+using System.Linq;
+
 
 
 
@@ -84,12 +86,13 @@ public class Deck
 
     public Card DrawCard()
     {
-        if(_theDeck.Count == 0)
-        {
-            //shuffle discard pile into the deck
-        }
-        Card cardToDraw = _theDeck[_theDeck.Count - 1];
-        _theDeck.RemoveAt(_theDeck.Count - 1);
+        // if(_theDeck.Count == 0)
+        // {
+        //     //shuffle discard pile into the deck
+        // }
+        int lastCard = _theDeck.Count - 1;
+        Card cardToDraw = _theDeck[lastCard];
+        _theDeck.RemoveAt(lastCard);
         return cardToDraw;
     }
 

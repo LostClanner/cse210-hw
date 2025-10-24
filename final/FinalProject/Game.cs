@@ -88,10 +88,10 @@ public class Game
 
     }
 
-    public void HandelCardEffect()
-    {
+    // public void HandelCardEffect()
+    // {
 
-    }
+    // }
 
     private void TakeTurn()
     {
