@@ -99,9 +99,9 @@ public class Game
     private void TakeTurn()
     {
         Player currentPlayer = _players[_currentPlayerPosition];
-        Console.Clear();
+        // Console.Clear(); Removed for testing purpuses
 
-        Console.WriteLine($"----Player {_currentPlayerPosition}----");
+        Console.WriteLine($"----Player {_currentPlayerPosition + 1}----");
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
 
         PlayerDisplayHand(currentPlayer);
@@ -139,7 +139,7 @@ public class Game
     public void Run()
     {
         Console.WriteLine("Starting a new game");
-        StartGame(4);
+        StartGame(2);
 
         while (!_hasPlayerWon)
         {
