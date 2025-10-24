@@ -37,6 +37,7 @@ public class Player
         return null;
     }
 
+    //tesing purposes
     public void DisplayHand()
     {
         Console.WriteLine("--Your hand--");

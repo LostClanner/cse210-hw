@@ -65,9 +65,14 @@ public class Game
     }
 
 
-    public void PlayerPlayCard(Player currentPlayer )
+    public void PlayerPlayCard(Player currentPlayer, Card cardToPlay)
     {
-       
+        currentPlayer.PlayCard(cardToPlay);
+        _discardPile.Add(cardToPlay);
+
+        Console.WriteLine($"You played {cardToPlay.ToString()}");
+
+        //HandelCardEffect();
 
     }
 
@@ -94,7 +99,7 @@ public class Game
         Console.Clear();
 
         Console.WriteLine($"----Player {currentPlayer}----");
-        Console.WriteLine($"top card is: {TopOfDiscardPile.ToString}");
+        Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
 
         currentPlayer.DisplayHand();
 
@@ -102,17 +107,24 @@ public class Game
 
         if (cardToPlay == null)
         {
-            Console.WriteLine("You have nothing to play");
-            PlayerDrawCard()
+            Console.WriteLine("You have nothing to play, drawing card");
+            PlayerDrawCard(currentPlayer);
+        }
+        else
+        {
+            PlayerPlayCard(currentPlayer, cardToPlay);
         }
 
+        if (currentPlayer.GetHand().Count == 0)
+        {
+            Console.WriteLine($"Player {currentPlayer} Wins!");
+            _hasPlayerWon = true;
+            return;
+        }
+
+
+        NextTurn();
         
-
-
-
-
-
-
     }
     
 
