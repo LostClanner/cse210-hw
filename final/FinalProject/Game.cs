@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Game
 {
-    private Deck _deck;
+    private Deck _deck = new Deck();
     private List<Player> _players = new List<Player>();
     private List<Card> _discardPile = new List<Card>();
     private int _currentPlayerPosition = 0;
@@ -16,7 +16,7 @@ public class Game
 
     public Game()
     {
-        _deck = new Deck();
+
     }
 
     public void StartGame(int playerCount, int startingHandSize = 7/*how many decks you are wanting to play with*/)
@@ -98,7 +98,7 @@ public class Game
         Player currentPlayer = _players[_currentPlayerPosition];
         Console.Clear();
 
-        Console.WriteLine($"----Player {currentPlayer}----");
+        Console.WriteLine($"----Player {_currentPlayerPosition}----");
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
 
         currentPlayer.DisplayHand();
