@@ -73,6 +73,7 @@ public class Game
         currentPlayer.PlayCard(cardToPlay);
         _discardPile.Add(cardToPlay);
 
+        Console.WriteLine();
         Console.WriteLine($"You played |{cardToPlay.ToString()}|");
 
         //HandelCardEffect();
@@ -81,10 +82,20 @@ public class Game
 
     public void PlayerDrawCard(Player currentPlayer)
     {
+        int deckCardAmount = _deck.GetDeckCount();
+
+        if (deckCardAmount == 0)
+        {
+            foreach(Card card in _discardPile)
+            {
+                _deck.AddToDeck(card);
+            }
+        }
 
         Card drawnCard = _deck.DrawCard();
         currentPlayer.AddCardToHand(drawnCard);
 
+        Console.WriteLine();
         Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
 
         //add something if they are able to play it imideietly
@@ -140,12 +151,13 @@ public class Game
     public void Run()
     {
         Console.WriteLine("Starting a new game");
+        Console.WriteLine();
         StartGame(2);
 
         while (!_hasPlayerWon)
         {
             TakeTurn();
-            Console.ReadLine();
+            // Console.ReadLine();
         }
 
         Console.WriteLine("Game Over");

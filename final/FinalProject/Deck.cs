@@ -63,7 +63,7 @@ public class Deck
 
 
     }
-    private void ShuffleDeck() //https://github.com/JDSherbert/Fisher-Yates-Shuffle
+    public void ShuffleDeck() //https://github.com/JDSherbert/Fisher-Yates-Shuffle
     {
         Random rnd = new Random();
 
@@ -79,7 +79,15 @@ public class Deck
 
     //----This is the end of the deck building logic----
 
-    
+    public int GetDeckCount()
+    {
+        return _theDeck.Count;
+    }
+
+    public void AddToDeck(Card card)
+    {
+        _theDeck.Add(card);
+    }
 
 
 
