@@ -38,14 +38,14 @@ public class Player
     }
 
     //tesing purposes
-    public void DisplayHand()
-    {
-        Console.WriteLine("--Your hand--");
-        foreach (Card card in _playerHand)
-        {
-            Console.Write($"{card} ");
-        }
-    }
+    // public void DisplayHand()
+    // {
+    //     Console.WriteLine("--Your hand--");
+    //     foreach (Card card in _playerHand)
+    //     {
+    //         Console.Write($"{card} ");
+    //     }
+    // }
     
     public List<Card> GetHand()
     {

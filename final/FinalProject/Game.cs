@@ -156,9 +156,10 @@ public class Game
     private void PlayerDisplayHand(Player currentPlayer)
     {
         List<Card> playerHand = currentPlayer.GetHand();
+        Console.WriteLine("Your hand:");
+
         foreach (Card card in playerHand)
         {
-            Console.WriteLine("Your hand:");
             Console.Write($"|{card}| ");
         }
     }
