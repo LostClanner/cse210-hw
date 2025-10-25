@@ -117,6 +117,7 @@ public class Game
         Console.WriteLine();
 
         PlayerDisplayHand(currentPlayer);
+        Console.WriteLine();
 
         while (true)
         {
@@ -140,7 +141,7 @@ public class Game
                 }
                 else if (chosenCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
                 {
-                    currentPlayer.PlayCard(chosenCard);
+                    PlayerPlayCard(currentPlayer, chosenCard);
                     break;
 
                 }
