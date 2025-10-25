@@ -23,19 +23,29 @@ public class Player
 
     }
 
-
-
-    public Card FindPlayableCard(Card topOfDiscardPile)
+    public Card GetCardFromHand(int index)
     {
-        foreach (Card card in _playerHand)
+        if (index >= 0 && index < _playerHand.Count)
         {
-            if (card.CanPlayCard(topOfDiscardPile.Color, topOfDiscardPile.Value))
-            {
-                return card;
-            }
+            return _playerHand[index];
         }
-        return null;
+        else
+        {
+            return null;
+        }
     }
+
+    // public Card FindPlayableCard(Card topOfDiscardPile)
+    // {
+    //     foreach (Card card in _playerHand)
+    //     {
+    //         if (card.CanPlayCard(topOfDiscardPile.Color, topOfDiscardPile.Value))
+    //         {
+    //             return card;
+    //         }
+    //     }
+    //     return null;
+    // }
 
     //tesing purposes
     // public void DisplayHand()

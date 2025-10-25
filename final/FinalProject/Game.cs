@@ -116,7 +116,8 @@ public class Game
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
 
         PlayerDisplayHand(currentPlayer);
-        
+        // List<Card> playersHand = currentPlayer.GetHand();
+
 
 
         Card cardToPlay = currentPlayer.FindPlayableCard(TopOfDiscardPile);
@@ -128,7 +129,8 @@ public class Game
         }
         else
         {
-            PlayerPlayCard(currentPlayer, cardToPlay);
+            // int cardOptions = cardToPlay.Count()
+            // PlayerPlayCard(currentPlayer, cardToPlay);
         }
 
         if (currentPlayer.GetHand().Count == 0)
@@ -170,11 +172,15 @@ public class Game
     {
         List<Card> playerHand = currentPlayer.GetHand();
         Console.WriteLine("Your hand:");
+        int i = 1;
 
         foreach (Card card in playerHand)
         {
-            Console.Write($"|{card}| ");
+            Console.Write($"|{i}{card}| ");
+            i++;
         }
     }
+
+
 
 }
