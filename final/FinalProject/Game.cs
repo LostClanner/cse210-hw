@@ -129,6 +129,7 @@ public class Game
                 if (choice == 0)
                 {
                     PlayerDrawCard(currentPlayer);
+                    NextTurn();
                     break;
                 }
                 int cardIndex = choice - 1;
@@ -142,6 +143,7 @@ public class Game
                 else if (chosenCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
                 {
                     PlayerPlayCard(currentPlayer, chosenCard);
+                    NextTurn();
                     break;
 
                 }
