@@ -114,35 +114,71 @@ public class Game
 
         Console.WriteLine($"----Player {_currentPlayerPosition + 1}----");
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
+        Console.WriteLine();
 
         PlayerDisplayHand(currentPlayer);
-        // List<Card> playersHand = currentPlayer.GetHand();
 
-
-
-        Card cardToPlay = currentPlayer.FindPlayableCard(TopOfDiscardPile);
-
-        if (cardToPlay == null)
+        while (true)
         {
-            Console.WriteLine("You have nothing to play, drawing card");
-            PlayerDrawCard(currentPlayer);
-        }
-        else
-        {
-            // int cardOptions = cardToPlay.Count()
-            // PlayerPlayCard(currentPlayer, cardToPlay);
+            Console.WriteLine("Pick a card to play or enter '0' to draw");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int choice))
+            {
+                if (choice == 0)
+                {
+                    PlayerDrawCard(currentPlayer);
+                    break;
+                }
+                int cardIndex = choice - 1;
+
+                Card chosenCard = currentPlayer.GetCardFromHand(cardIndex);
+
+                if (chosenCard == null)
+                {
+                    Console.WriteLine("You are unable to play that card");
+                }
+                else if (chosenCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
+                {
+                    currentPlayer.PlayCard(chosenCard);
+                    break;
+
+                }
+                else
+                {
+                    Console.WriteLine($"You can't play {chosenCard} it is not a match");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+            }
+
+            
         }
 
-        if (currentPlayer.GetHand().Count == 0)
-        {
-            Console.WriteLine();
-            Console.WriteLine($"Player {_currentPlayerPosition + 1} Wins!");
-            _hasPlayerWon = true;
-            return;
-        }
+
+        // if (cardToPlay == null)
+        // {
+        //     Console.WriteLine("You have nothing to play, drawing card");
+        //     PlayerDrawCard(currentPlayer);
+        // }
+        // else
+        // {
+        //     // int cardOptions = cardToPlay.Count()
+        //     // PlayerPlayCard(currentPlayer, cardToPlay);
+        // }
+
+        // if (currentPlayer.GetHand().Count == 0)
+        // {
+        //     Console.WriteLine();
+        //     Console.WriteLine($"Player {_currentPlayerPosition + 1} Wins!");
+        //     _hasPlayerWon = true;
+        //     return;
+        // }
 
 
-        NextTurn();
+        // NextTurn();
         
     }
 
@@ -176,7 +212,7 @@ public class Game
 
         foreach (Card card in playerHand)
         {
-            Console.Write($"|{i}{card}| ");
+            Console.Write($"Card {i} |{card}| ");
             i++;
         }
     }
