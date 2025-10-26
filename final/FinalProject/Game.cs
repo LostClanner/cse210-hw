@@ -96,9 +96,14 @@ public class Game
 
         Card drawnCard = _deck.DrawCard();
         currentPlayer.AddCardToHand(drawnCard);
-
         Console.WriteLine();
         Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
+
+        if (drawnCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
+        {
+            Console.WriteLine("And played it immediately!");
+            PlayerPlayCard(currentPlayer, drawnCard);
+        }
 
         
 
