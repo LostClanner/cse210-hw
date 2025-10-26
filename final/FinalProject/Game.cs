@@ -86,10 +86,12 @@ public class Game
 
         if (deckCardAmount == 0)
         {
-            foreach(Card card in _discardPile)
+            foreach (Card card in _discardPile)
             {
                 _deck.AddToDeck(card);
             }
+            _deck.ShuffleDeck();
+
         }
 
         Card drawnCard = _deck.DrawCard();
