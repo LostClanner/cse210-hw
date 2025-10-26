@@ -76,7 +76,7 @@ public class Game
         Console.WriteLine();
         Console.WriteLine($"You played |{cardToPlay.ToString()}|");
 
-        //HandelCardEffect();
+        // HandelCardEffect(cardToPlay);
 
     }
 
@@ -109,9 +109,9 @@ public class Game
 
     }
 
-    // public void HandelCardEffect()
+    // public void HandelCardEffect(Card card)
     // {
-
+    //     switch 
     // }
 
     private void TakeTurn()
