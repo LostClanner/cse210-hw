@@ -98,7 +98,7 @@ public class Game
         Console.WriteLine();
         Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
 
-        //add something if they are able to play it imideietly
+        
 
     }
 
@@ -155,6 +155,13 @@ public class Game
             else
             {
                 Console.WriteLine("Invalid input");
+            }
+
+            if(currentPlayer.GetHand().Count == 0)
+            {
+                Console.WriteLine($"Player {_currentPlayerPosition} has Won!");
+                _hasPlayerWon = true;
+                return;
             }
 
             
