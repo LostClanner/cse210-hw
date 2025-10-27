@@ -48,23 +48,8 @@ public class Game
 
     private void NextTurn()
     {
-        if (_isReversed)
-        {
-            _currentPlayerPosition--;
-        }
-        else
-        {
-            _currentPlayerPosition++;
-        }
-
-        if (_currentPlayerPosition >= _players.Count)
-        {
-            _currentPlayerPosition = 0;
-        }
-        if (_currentPlayerPosition < 0)
-        {
-            _currentPlayerPosition = _players.Count - 1;
-        }
+        int nextPlayer = GetNextPlayerIndex();
+        _currentPlayerPosition = nextPlayer;
     }
 
 
@@ -140,7 +125,7 @@ public class Game
                     break;
                 }
                 int cardIndex = choice - 1;
-            
+
                 Card chosenCard = currentPlayer.GetCardFromHand(cardIndex);
 
                 if (chosenCard == null)
@@ -164,20 +149,21 @@ public class Game
             {
                 Console.WriteLine("Invalid input");
             }
-
-            if (currentPlayer.GetHand().Count == 0)
-            {
-                Console.WriteLine($"Player {_currentPlayerPosition + 1} has Won!");
-                _hasPlayerWon = true;
-                return;
-            }
-            if (!turnWasEffectedByCard)
-            {
-                NextTurn();
-            }
-
-
         }
+
+        if (currentPlayer.GetHand().Count == 0)
+        {
+            Console.WriteLine($"Player {_currentPlayerPosition + 1} has Won!");
+            _hasPlayerWon = true;
+            return;
+        }
+        if (!turnWasEffectedByCard)
+        {
+            NextTurn();
+        }
+
+
+        
 
     }
 
@@ -185,7 +171,7 @@ public class Game
     {
         Console.WriteLine("Starting a new game");
         Console.WriteLine();
-        StartGame(2);
+        StartGame(3);
 
         while (!_hasPlayerWon)
         {
