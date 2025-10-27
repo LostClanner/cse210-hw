@@ -25,13 +25,13 @@ public class Deck
             AddNumberCard(color);
             AddSpecialCard(color);
         }
-        // int i = 1;
-        // while (i < 5)
-        // {
-        //     _theDeck.Add(new WildCard());
-        //     _theDeck.Add(new DrawFourWildCard());
-        //     i++;
-        // }
+        int i = 1;
+        while (i < 5)
+        {
+            _theDeck.Add(new WildCard());
+            _theDeck.Add(new DrawFourWildCard());
+            i++;
+        }
 
         ShuffleDeck();
 
