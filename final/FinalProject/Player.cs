@@ -6,9 +6,9 @@ public class Player
 {
     private List<Card> _playerHand = new List<Card>();
 
-        public Player()
+    public Player()
     {
-        
+
     }
 
     public void PlayCard(Card card)
@@ -35,6 +35,18 @@ public class Player
         }
     }
 
+
+
+    public List<Card> GetHand()
+    {
+        return _playerHand;
+    }
+
+
+}
+
+
+
     // public Card FindPlayableCard(Card topOfDiscardPile)
     // {
     //     foreach (Card card in _playerHand)
@@ -56,14 +68,10 @@ public class Player
     //         Console.Write($"{card} ");
     //     }
     // }
-    
-    public List<Card> GetHand()
-    {
-        return _playerHand;
-    }
 
 
-    //This needs a lot of work, dont forget to fix it
+
+        //This needs a lot of work, dont forget to fix it
     //Fine for now, but it should return a list.
     // public void GetHand()
     // {
@@ -83,5 +91,3 @@ public class Player
 
     //     }
     // }
-    
-}

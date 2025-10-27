@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.Linq;
 
 
@@ -19,7 +21,7 @@ public class Game
 
     }
 
-    public void StartGame(int playerCount, int startingHandSize = 7/*how many decks you are wanting to play with*/)
+    public void StartGame(int playerCount, int startingHandSize = 7)
     {
         while (playerCount > 0)
         {
@@ -27,14 +29,12 @@ public class Game
             playerCount--;
         }
 
-        _deck.MakeNewDeck();    
-
+        _deck.MakeNewDeck();
         int i = 0;
-
 
         while (i < startingHandSize)
         {
-            foreach(Player player in _players)
+            foreach (Player player in _players)
             {
                 player.AddCardToHand(_deck.DrawCard());
             }
@@ -61,7 +61,7 @@ public class Game
         {
             _currentPlayerPosition = 0;
         }
-        if(_currentPlayerPosition < 0)
+        if (_currentPlayerPosition < 0)
         {
             _currentPlayerPosition = _players.Count - 1;
         }
@@ -105,14 +105,10 @@ public class Game
             PlayerPlayCard(currentPlayer, drawnCard);
         }
 
-        
+
 
     }
 
-    // public void HandelCardEffect(Card card)
-    // {
-    //     switch 
-    // }
 
     private void TakeTurn()
     {
@@ -164,15 +160,146 @@ public class Game
                 Console.WriteLine("Invalid input");
             }
 
-            if(currentPlayer.GetHand().Count == 0)
+            if (currentPlayer.GetHand().Count == 0)
             {
                 Console.WriteLine($"Player {_currentPlayerPosition} has Won!");
                 _hasPlayerWon = true;
                 return;
             }
 
-            
+
         }
+
+    }
+
+    public void Run()
+    {
+        Console.WriteLine("Starting a new game");
+        Console.WriteLine();
+        StartGame(2);
+
+        while (!_hasPlayerWon)
+        {
+            TakeTurn();
+        }
+
+        Console.WriteLine("Game Over");
+        Console.Write("press enter to close: ");
+        Console.ReadLine();
+    }
+
+
+    private void PlayerDisplayHand(Player currentPlayer)
+    {
+        List<Card> playerHand = currentPlayer.GetHand();
+        Console.WriteLine("Your hand:");
+        int i = 1;
+
+        foreach (Card card in playerHand)
+        {
+            Console.Write($"Card {i} |{card}| ");
+            i++;
+        }
+    }
+
+    //------The cards abilities------
+    public void SkipNextPlayer()
+    {
+        Console.WriteLine("You skipped the next player");
+        NextTurn();
+    }
+
+    public void ReverseDirection()
+    {
+        Console.WriteLine("You reversed the direction");
+        _isReversed = !_isReversed;
+
+    }
+
+    public void ForceToDraw(int count)
+    {
+        Player nextPlayer = GetNextPlayer();
+        Console.WriteLine($"Player {GetNextPlayerIndex() + 1} draws {count} and is skipped!");
+        for (int i = 0; i < count; i++)
+        {
+            //need a check again to see if deck is empty
+            nextPlayer.AddCardToHand(_deck.DrawCard());
+        }
+        NextTurn();
+    }
+
+    public CardColor ChangeColor()
+    {
+        while (true)
+        {
+            Console.WriteLine("Choose the new color: 1. Red 2. Blue 3. Green 4. Yellow");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1": return CardColor.Red;
+                case "2": return CardColor.Blue;
+                case "3": return CardColor.Green;
+                case "4": return CardColor.Yellow;
+                default: Console.WriteLine("Invalid choice"); break;
+            }
+        }
+
+    }
+
+
+    private int GetNextPlayerIndex()
+    {
+        int nextIndex = _currentPlayerPosition;
+        if (_isReversed)
+        {
+            nextIndex--;
+        }
+        else
+        {
+            nextIndex++;
+        }
+
+        if (nextIndex >= _players.Count)
+        {
+            nextIndex = 0;
+        }
+        if (nextIndex < 0)
+        {
+            nextIndex = _players.Count - 1;
+        }
+
+        return nextIndex;
+    }
+
+    private Player GetNextPlayer()
+    {
+        int nextIndex = GetNextPlayerIndex();
+        return _players[nextIndex];
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+    // public void HandelCardEffect(Card card)
+    // {
+    //     switch 
+    // }
+
+
+
+
+
+
+
 
 
         // if (cardToPlay == null)
@@ -196,44 +323,3 @@ public class Game
 
 
         // NextTurn();
-        
-    }
-
-
-
-
-
-    public void Run()
-    {
-        Console.WriteLine("Starting a new game");
-        Console.WriteLine();
-        StartGame(2);
-
-        while (!_hasPlayerWon)
-        {
-            TakeTurn();
-            // Console.ReadLine();
-        }
-
-        Console.WriteLine("Game Over");
-        Console.Write("press enter to close: ");
-        Console.ReadLine();
-    }
-
-
-    private void PlayerDisplayHand(Player currentPlayer)
-    {
-        List<Card> playerHand = currentPlayer.GetHand();
-        Console.WriteLine("Your hand:");
-        int i = 1;
-
-        foreach (Card card in playerHand)
-        {
-            Console.Write($"Card {i} |{card}| ");
-            i++;
-        }
-    }
-
-
-
-}
