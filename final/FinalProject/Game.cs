@@ -126,7 +126,7 @@ public class Game
         currentPlayer.DisplayHand();
         Console.WriteLine();
 
-        bool turnWasEffectedByCard = false;
+        bool cardSkipsPlayer = false;
 
         while (true)
         {
@@ -137,7 +137,7 @@ public class Game
             {
                 if (choice == 0)
                 {
-                    PlayerDrawCard(currentPlayer);
+                    cardSkipsPlayer = PlayerDrawCard(currentPlayer);
                     break;
                 }
                 int cardIndex = choice - 1;
@@ -150,8 +150,7 @@ public class Game
                 }
                 else if (chosenCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
                 {
-                    PlayerPlayCard(currentPlayer, chosenCard);
-                    turnWasEffectedByCard = chosenCard.SpecialCardEffect(this);
+                    cardSkipsPlayer = PlayerPlayCard(currentPlayer, chosenCard);
                     break;
 
                 }
@@ -172,7 +171,9 @@ public class Game
             _hasPlayerWon = true;
             return;
         }
-        if (!turnWasEffectedByCard)
+        NextTurn();
+
+        if (cardSkipsPlayer)
         {
             NextTurn();
         }
@@ -212,9 +213,6 @@ public class Game
     public void SkipNextPlayer()
     {
         Console.WriteLine("You skipped the next player");
-        NextTurn();
-        NextTurn();
-
     }
 
     public void ReverseDirection()
@@ -233,9 +231,6 @@ public class Game
             CheckDeck();
             nextPlayer.AddCardToHand(_deck.DrawCard());
         }
-        NextTurn();
-        NextTurn();
-
     }
 
     public CardColor ChangeColor()
