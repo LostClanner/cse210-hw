@@ -35,15 +35,41 @@ public class Player
         }
     }
 
-
-
     public List<Card> GetHand()
     {
         return _playerHand;
     }
 
+    public void DisplayHand()
+    {
+        Console.WriteLine("Your hand:");
+        int i = 1;
+        foreach (Card card in _playerHand)
+        {
+            Console.Write($"Card {i} |{card}| ");
+            i++;
+        }
+        Console.WriteLine();
+    
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
