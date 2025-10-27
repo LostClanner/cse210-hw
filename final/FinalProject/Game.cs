@@ -124,7 +124,7 @@ public class Game
         currentPlayer.DisplayHand();
         Console.WriteLine();
 
-        bool turnWasAffectedByCard = false;
+        bool turnWasEffectedByCard = false;
 
         while (true)
         {
@@ -151,7 +151,7 @@ public class Game
                 {
                     PlayerPlayCard(currentPlayer, chosenCard);
                     // NextTurn();
-                    turnWasAffectedByCard = chosenCard.SpecialCardEffect(this);
+                    turnWasEffectedByCard = chosenCard.SpecialCardEffect(this);
                     break;
 
                 }
@@ -171,7 +171,7 @@ public class Game
                 _hasPlayerWon = true;
                 return;
             }
-            if (!turnWasAffectedByCard)
+            if (!turnWasEffectedByCard)
             {
                 NextTurn();
             }
