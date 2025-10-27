@@ -121,8 +121,10 @@ public class Game
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
         Console.WriteLine();
 
-        PlayerDisplayHand(currentPlayer);
+        currentPlayer.DisplayHand();
         Console.WriteLine();
+
+        bool turnWasAffectedByCard = false;
 
         while (true)
         {
@@ -134,11 +136,11 @@ public class Game
                 if (choice == 0)
                 {
                     PlayerDrawCard(currentPlayer);
-                    NextTurn();
+                    // NextTurn();
                     break;
                 }
                 int cardIndex = choice - 1;
-
+            
                 Card chosenCard = currentPlayer.GetCardFromHand(cardIndex);
 
                 if (chosenCard == null)
@@ -148,7 +150,8 @@ public class Game
                 else if (chosenCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
                 {
                     PlayerPlayCard(currentPlayer, chosenCard);
-                    NextTurn();
+                    // NextTurn();
+                    turnWasAffectedByCard = chosenCard.SpecialCardEffect(this);
                     break;
 
                 }
@@ -164,9 +167,13 @@ public class Game
 
             if (currentPlayer.GetHand().Count == 0)
             {
-                Console.WriteLine($"Player {_currentPlayerPosition} has Won!");
+                Console.WriteLine($"Player {_currentPlayerPosition + 1} has Won!");
                 _hasPlayerWon = true;
                 return;
+            }
+            if (!turnWasAffectedByCard)
+            {
+                NextTurn();
             }
 
 
@@ -191,18 +198,7 @@ public class Game
     }
 
 
-    private void PlayerDisplayHand(Player currentPlayer)
-    {
-        List<Card> playerHand = currentPlayer.GetHand();
-        Console.WriteLine("Your hand:");
-        int i = 1;
 
-        foreach (Card card in playerHand)
-        {
-            Console.Write($"Card {i} |{card}| ");
-            i++;
-        }
-    }
 
     //------The cards abilities------
     public void SkipNextPlayer()
