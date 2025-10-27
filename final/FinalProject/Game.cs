@@ -175,6 +175,13 @@ public class Game
 
         while (!_hasPlayerWon)
         {
+            int i = 1;
+            foreach (Player player in _players)
+            {
+                Console.WriteLine($"Player #{i}");
+                player.DisplayHand();
+                i++;
+            }
             TakeTurn();
         }
 
@@ -191,6 +198,8 @@ public class Game
     {
         Console.WriteLine("You skipped the next player");
         NextTurn();
+        NextTurn();
+
     }
 
     public void ReverseDirection()
@@ -210,6 +219,8 @@ public class Game
             nextPlayer.AddCardToHand(_deck.DrawCard());
         }
         NextTurn();
+        NextTurn();
+
     }
 
     public CardColor ChangeColor()
