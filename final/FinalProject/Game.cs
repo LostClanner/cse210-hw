@@ -75,25 +75,11 @@ public class Game
 
         Console.WriteLine();
         Console.WriteLine($"You played |{cardToPlay.ToString()}|");
-
-        // HandelCardEffect(cardToPlay);
-
     }
 
     public void PlayerDrawCard(Player currentPlayer)
     {
-        int deckCardAmount = _deck.GetDeckCount();
-
-        if (deckCardAmount == 0)
-        {
-            foreach (Card card in _discardPile)
-            {
-                _deck.AddToDeck(card);
-            }
-            _deck.ShuffleDeck();
-
-        }
-
+        CheckDeck();
         Card drawnCard = _deck.DrawCard();
         currentPlayer.AddCardToHand(drawnCard);
         Console.WriteLine();
@@ -103,10 +89,26 @@ public class Game
         {
             Console.WriteLine("And played it immediately!");
             PlayerPlayCard(currentPlayer, drawnCard);
+            drawnCard.SpecialCardEffect(this); //Need a better way to handle special cards
         }
+    }
 
+    private void CheckDeck()
+    {
+        if (_deck.GetDeckCount() == 0)
+        {
+            Console.WriteLine("Deck empty shuffling deck");
+            Card topCard = TopOfDiscardPile; //Getting top of the discard to keep it
+            _discardPile.Remove(topCard);
 
-
+            foreach (Card card in _discardPile)
+            {
+                _deck.AddToDeck(card);
+            }
+            _discardPile.Clear();
+            _discardPile.Add(topCard);
+            _deck.ShuffleDeck();
+        }
     }
 
 
@@ -287,12 +289,6 @@ public class Game
 
 
 
-
-
-    // public void HandelCardEffect(Card card)
-    // {
-    //     switch 
-    // }
 
 
 
