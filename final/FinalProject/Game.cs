@@ -230,7 +230,7 @@ public class Game
     {
         while (true)
         {
-            Console.WriteLine("Choose the new color: 1. Red 2. Blue 3. Green 4. Yellow");
+            Console.WriteLine("Choose the new color: 1.Red 2.Blue 3.Green 4.Yellow");
             string choice = Console.ReadLine();
             switch (choice)
             {
