@@ -57,29 +57,42 @@ public class Game
     }
 
 
-    public void PlayerPlayCard(Player currentPlayer, Card cardToPlay)
+    public bool PlayerPlayCard(Player currentPlayer, Card cardToPlay)
     {
         currentPlayer.PlayCard(cardToPlay);
         _discardPile.Add(cardToPlay);
 
         Console.WriteLine();
         Console.WriteLine($"You played |{cardToPlay.ToString()}|");
+        return cardToPlay.SpecialCardEffect(this);
     }
 
-    public void PlayerDrawCard(Player currentPlayer)
+    public bool PlayerDrawCard(Player currentPlayer)
     {
         CheckDeck();
         Card drawnCard = _deck.DrawCard();
         currentPlayer.AddCardToHand(drawnCard);
         Console.WriteLine();
         Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
+        bool wasTurnEffected = false;
 
         if (drawnCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
         {
-            Console.WriteLine("And played it immediately!");
-            PlayerPlayCard(currentPlayer, drawnCard);
-            drawnCard.SpecialCardEffect(this); //Need a better way to handle special cards
+            Console.WriteLine($"You drew {drawnCard.ToString()}");
+            Console.Write("Do you want to play in immediately? 1.Play it 2.Keep it: ");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("You played the card");
+                    wasTurnEffected = PlayerPlayCard(currentPlayer, drawnCard);
+                    break;
+                case "2": Console.WriteLine("You kept the card"); break;
+                default: Console.WriteLine("Invalid chocie"); break;
+            }
+
         }
+        return wasTurnEffected;
     }
 
     private void CheckDeck()
@@ -183,10 +196,6 @@ public class Game
                 Console.WriteLine($"Player #{i}");
                 player.DisplayHand();
                 i++;
-            }
-            foreach(Card card in _discardPile)
-            {
-                Console.WriteLine($"The card {card.ToString()}");
             }
             TakeTurn();
         }
