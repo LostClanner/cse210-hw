@@ -11,7 +11,7 @@ public enum CardColor { Red, Yellow, Green, Blue, Black }
 
 public abstract class Card
 {
-    public CardColor Color { get; protected set; }
+    public CardColor Color { get; set; }
     public CardValue Value { get; protected set;  }
 
     public Card(CardColor color, CardValue value)

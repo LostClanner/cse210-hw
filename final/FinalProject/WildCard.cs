@@ -12,7 +12,10 @@ public class WildCard : Card
 
     public override bool SpecialCardEffect(Game game)
     {
-        game.ChangeColor();
+        CardColor newColor = game.ChangeColor();
+        this.Color = newColor;
+
+        Console.WriteLine($"The new color is {this.Color}");
         return false;
     }
 
