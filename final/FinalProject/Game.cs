@@ -224,7 +224,7 @@ public class Game
         Console.WriteLine($"Player {GetNextPlayerIndex() + 1} draws {count} and is skipped!");
         for (int i = 0; i < count; i++)
         {
-            //need a check again to see if deck is empty
+            CheckDeck();
             nextPlayer.AddCardToHand(_deck.DrawCard());
         }
         NextTurn();
