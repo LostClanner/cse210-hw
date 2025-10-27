@@ -94,10 +94,6 @@ public class Deck
 
     public Card DrawCard()
     {
-        // if(_theDeck.Count == 0)
-        // {
-        //     //shuffle discard pile into the deck
-        // }
         int lastCard = _theDeck.Count - 1;
         Card cardToDraw = _theDeck[lastCard];
         _theDeck.RemoveAt(lastCard);

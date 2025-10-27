@@ -42,7 +42,10 @@ public abstract class Card
     }
 
 
-    // protected abstract *IDKYET* SpecialCardEffect()
+    public virtual bool SpecialCardEffect(Game game)
+    {
+        return false;
+    }
 
 
     public override string ToString()
