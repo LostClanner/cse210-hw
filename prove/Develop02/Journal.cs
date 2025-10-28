@@ -45,8 +45,22 @@ public class Journal
 
     }
 
-    public void SaveEntry()
+    public void SaveEntry(string filename)
     {
+        try
+        {
+            var path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename);
+            Console.WriteLine($"Saving to: {path}");
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(_entries, options);
+
+            File.WriteAllText(path, jsonString);
+            Console.WriteLine("File saved successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving file: {ex.Message}");
+        }
 
     }
     
