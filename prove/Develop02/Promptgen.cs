@@ -11,6 +11,7 @@ public class PromptGen
 
     public PromptGen()
     {
+        _random = new Random();
         _prompts = new List<string>
         {
             "Who was the most interesting person I interacted with today?",
@@ -26,6 +27,10 @@ public class PromptGen
         };
     }
 
-
+    public string GeneratePrompt()
+    {
+        int index = _random.Next(_prompts.Count);
+        return _prompts[index];
+    }
 
 }
