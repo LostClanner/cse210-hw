@@ -36,12 +36,17 @@ class Program
 
                     j1.AddNewEntry(randomPrompt, response);
                     break;
-        
+
                 case "2":
+                    Console.WriteLine("Your journal: ");
+                    j1.DisplayEntry();
+                    break;
                 case "3":
                 case "4":
                 case "5":
                 default:
+                    Console.WriteLine("Error invalid response");
+                    break;
             }
 
 
