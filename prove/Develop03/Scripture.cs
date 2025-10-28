@@ -63,17 +63,6 @@ public class Scripture
 
 
 
-/*
-    this is the old HideRandomWords
-
-    Random rand = new Random();
-    for (int i = 0; i < TheOneThatHides; i++)
-    {
-        int index = rand.Next(_theText.Count);
-        _theText[index].Hide();
-    }
-
-*/
 
     // This checks to see if everything is hidden
     public bool IsCompletelyHidden()
