@@ -64,11 +64,29 @@ public class Journal
 
     }
     
-    public void LoadEntry()
+    public void LoadEntry(string filename)
     {
+        try
+        {
+            var path = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename);
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("File not found.");
+                return;
+            }
+            Console.WriteLine($"Reading from: {path}");
+            string jsonString = File.ReadAllText(path);
+            _entries = JsonSerializer.Deserialize<List<Entry>>(jsonString);
+            Console.WriteLine("File loaded successfully.");
+        }
+        catch (JsonException ex)
+        {
+            Console.WriteLine($"Error parsing JSON file. The file might be corrupt or in the wrong format: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading file: {ex.Message}");
+        }
         
     }
-
-    // add display save load 
-
 }
