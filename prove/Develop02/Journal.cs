@@ -14,8 +14,17 @@ public class Journal
     }
 
 
-    public void AddNewEntry()
+    public void AddNewEntry(string prompt, string response)
     {
+        Entry newEntry = new Entry
+        {
+            Date = DateTime.Now,
+            Prompt = prompt,
+            Response = response
+        };
+        _entries.Add(newEntry);
+        Console.WriteLine("That entry was recorded");
+        
 
     }
 
