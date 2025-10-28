@@ -33,7 +33,7 @@ public class Menu
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.WriteLine("4. Bad Habit");
+        Console.WriteLine("4. Bad Habit (this will subtract the points)");
         Console.Write("Please select 1-3: ");
         string choice = Console.ReadLine();
 
@@ -43,21 +43,24 @@ public class Menu
         Console.Write("How are you going to complete this goal? ");
         string summary = Console.ReadLine();
 
+        Console.Write("How many points should be attached to the goal? ");
+        int points = int.Parse(Console.ReadLine());
+
 
 
 
         switch (choice)
         {
             case "1":
-                Console.Write("How many points should the goal be worth? ");
-                int points = int.Parse(Console.ReadLine());
+                // Console.Write("How many points should the goal be worth? ");
+                // int points = int.Parse(Console.ReadLine());
                 Simple simpleGoal = new Simple(name, summary, points);
                 _goal.Add(simpleGoal);
                 Console.Clear();
                 break;
 
             case "2":
-                Eternal eternalGoal = new Eternal(name, summary);
+                Eternal eternalGoal = new Eternal(name, summary, points);
                 _goal.Add(eternalGoal);
                 Console.Clear();
                 break;
@@ -65,23 +68,23 @@ public class Menu
             case "3":
                 Console.Write("How many times do you want to complete this goal? ");
                 int targetCount = int.Parse(Console.ReadLine());
-                Console.Write("How many points should you get each time? ");
-                int point = int.Parse(Console.ReadLine());
+                // Console.Write("How many points should you get each time? ");
+                // int point = int.Parse(Console.ReadLine());
                 Console.Write("How many bonus points for completing the whole thing? ");
                 int bonusPoints = int.Parse(Console.ReadLine());
 
-                Checklist checklistGoal = new Checklist(name, summary, point, bonusPoints, targetCount);
+                Checklist checklistGoal = new Checklist(name, summary, points, bonusPoints, targetCount);
                 _goal.Add(checklistGoal);
                 break;
 
             case "4":
-                Console.Write("How many points should the bad habbit subtract? ");
-                int minusPoints = int.Parse(Console.ReadLine());
-                if(minusPoints > 0)
+                // Console.Write("How many points should the bad habbit subtract? ");
+                // int minusPoints = int.Parse(Console.ReadLine());
+                if(points > 0)
                 {
-                    minusPoints = minusPoints * -1;
+                    points = points * -1;
                 }
-                HabitBreaker habitBreaker = new HabitBreaker(name, summary, minusPoints);
+                HabitBreaker habitBreaker = new HabitBreaker(name, summary, points);
                 _goal.Add(habitBreaker);
                 Console.Clear();
                 break;
