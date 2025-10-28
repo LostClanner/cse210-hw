@@ -57,7 +57,7 @@ class Program
                     break;
 
                 default:
-                    Console.WriteLine("Incorrect answer, please type a real number");
+                    Console.WriteLine("Incorrect answer, please type a valid number");
                     Thread.Sleep(2000);
                     break;
             }
