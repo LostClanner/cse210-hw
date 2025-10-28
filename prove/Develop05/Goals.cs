@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 [JsonDerivedType(typeof(Simple), "simple")]
 [JsonDerivedType(typeof(Eternal), "eternal")]
 [JsonDerivedType(typeof(Checklist), "checklist")]
-[JsonDerivedType(typeof(HabbitBreaker), "habbitBreaker")]
+[JsonDerivedType(typeof(HabitBreaker), "habitBreaker")]
 
 public abstract class Goal
 {
