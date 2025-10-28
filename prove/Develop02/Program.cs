@@ -42,6 +42,10 @@ class Program
                     j1.DisplayEntry();
                     break;
                 case "3":
+                    Console.Write("What is the file you want to load: ");
+                    string filename = Console.ReadLine();
+                    j1.LoadEntry(filename);
+                    break;
                 case "4":
                 case "5":
                 default:
