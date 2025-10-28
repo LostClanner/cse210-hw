@@ -18,6 +18,7 @@ public class Checklist : Goal
     
     public override int RecordEvent()
     {
+        _currentCount++;
         if (_isComplete)
         {
             Console.WriteLine("This goal is already completed!");
@@ -31,7 +32,7 @@ public class Checklist : Goal
         }
         else
         {
-            _currentCount++;
+            // _currentCount++;
             return Points;
         }
         
