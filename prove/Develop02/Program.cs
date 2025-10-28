@@ -17,14 +17,32 @@ class Program
         {
             Console.WriteLine("Pick a number between 1-5 to select an option");
             Console.WriteLine("1. Write a new journal entry");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. load");
-            Console.WriteLine("4. save");
-            Console.WriteLine("3. quit");
+            Console.WriteLine("2. Display your journal");
+            Console.WriteLine("3. load a file");
+            Console.WriteLine("4. save to a file");
+            Console.WriteLine("5. quit");
+            Console.Write("please choose: ");
 
+            string choice = Console.ReadLine();
 
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("Your prompt to write");
+                    string randomPrompt = pG1.GeneratePrompt();
+                    Console.WriteLine(randomPrompt);
+                    Console.Write(">");
+                    string response = Console.ReadLine();
 
-
+                    j1.AddNewEntry(randomPrompt, response);
+                    break;
+        
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                default:
+            }
 
 
 
