@@ -53,6 +53,9 @@ class Program
                     j1.SaveEntry(filename);
                     break;
                 case "5":
+                    Console.WriteLine("Thanks for using the journal!");
+                    contineRun = false;
+                    break;
                 default:
                     Console.WriteLine("Error invalid response");
                     break;
