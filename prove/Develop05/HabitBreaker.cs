@@ -8,9 +8,9 @@ public class HabitBreaker : Goal
     [JsonConstructor]
     public HabitBreaker(string name, string summary, int points) : base(name, summary, points)
     {
-        if (points > 0)
+        if (Points > 0)
         {
-            points = points * -1;
+            Points = Points * -1;
         }
     }
     

@@ -12,7 +12,9 @@ class Program
 
         while (isRunning)
         {
+            Console.Clear();
             Console.WriteLine("Welcome to Goal Setter Quest");
+
             Console.WriteLine("Please select what you would like to do");
             Console.WriteLine("1. Make a new goal");
             Console.WriteLine("2. List all of your goals");
@@ -21,29 +23,34 @@ class Program
             Console.WriteLine("5. Save goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
-            string choice = Console.ReadLine();
+
+            int choice;
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                choice = -1;
+            }
 
             switch (choice)
             {
-                case "1":
+                case 1:
                     testMenu.MakeGoals();
                     break;
 
-                case "2":
+                case 2:
                     testMenu.ListGoals();
                     break;
 
-                case "3":
+                case 3:
                     testMenu.CompleteGoals();
                     break;
-                case "4":
+                case 4:
                     testMenu.LoadGoals();
                     break;
-                case "5":
+                case 5:
                     testMenu.SaveGoals();
                     break;
 
-                case "0":
+                case 0:
                     isRunning = false;
                     Console.WriteLine("Have a great day!");
                     Thread.Sleep(1200);
@@ -51,7 +58,7 @@ class Program
 
                 default:
                     Console.WriteLine("Incorrect answer, please type a real number");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     break;
             }
 
