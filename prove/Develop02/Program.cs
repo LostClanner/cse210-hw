@@ -15,13 +15,13 @@ class Program
 
         while (contineRun)
         {
-            Console.WriteLine("Pick a number between 1-5 to select an option");
+            Console.WriteLine("\nPick a number between 1-5 to select an option");
             Console.WriteLine("1. Write a new journal entry");
             Console.WriteLine("2. Display your journal");
-            Console.WriteLine("3. load a file");
-            Console.WriteLine("4. save to a file");
-            Console.WriteLine("5. quit");
-            Console.Write("please choose: ");
+            Console.WriteLine("3. Load a file");
+            Console.WriteLine("4. Save to a file");
+            Console.WriteLine("5. Quit");
+            Console.Write("> ");
 
             string choice = Console.ReadLine();
             string filename;
@@ -32,14 +32,14 @@ class Program
                     Console.WriteLine("Your prompt to write");
                     string randomPrompt = pG1.GeneratePrompt();
                     Console.WriteLine(randomPrompt);
-                    Console.Write(">");
+                    Console.Write("> ");
                     string response = Console.ReadLine();
 
                     j1.AddNewEntry(randomPrompt, response);
                     break;
 
                 case "2":
-                    Console.WriteLine("Your journal: ");
+                    Console.WriteLine("Your journal: \n");
                     j1.DisplayEntry();
                     break;
                 case "3":
