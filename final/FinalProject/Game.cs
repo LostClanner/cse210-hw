@@ -21,6 +21,27 @@ public class Game
 
     }
 
+        public void Run(int playerCount)
+    {
+        Console.WriteLine("Starting a new game");
+        Console.WriteLine();
+        StartGame(playerCount);
+
+        while (!_hasPlayerWon)
+        {
+            Console.Write($"Player #{_currentPlayerPosition + 1} press enter: ");
+            Console.ReadLine();
+            TakeTurn();
+            Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+        Console.WriteLine("Game Over");
+        Console.Write("press enter to close: ");
+        Console.ReadLine();
+    }
+
     public void StartGame(int playerCount, int startingHandSize = 7)
     {
         while (playerCount > 0)
@@ -41,83 +62,16 @@ public class Game
             i++;
         }
         _discardPile.Add(_deck.DrawCard());
-        while (_discardPile.Last(). Value > CardValue.Nine)
+        while (_discardPile.Last().Value > CardValue.Nine)
         {
             _discardPile.Add(_deck.DrawCard());
         }
-
-
-
     }
-
-    private void NextTurn()
-    {
-        int nextPlayer = GetNextPlayerIndex();
-        _currentPlayerPosition = nextPlayer;
-    }
-
-
-    public bool PlayerPlayCard(Player currentPlayer, Card cardToPlay)
-    {
-        currentPlayer.PlayCard(cardToPlay);
-        _discardPile.Add(cardToPlay);
-
-        Console.WriteLine();
-        Console.WriteLine($"You played |{cardToPlay.ToString()}|");
-        return cardToPlay.SpecialCardEffect(this);
-    }
-
-    public bool PlayerDrawCard(Player currentPlayer)
-    {
-        CheckDeck();
-        Card drawnCard = _deck.DrawCard();
-        currentPlayer.AddCardToHand(drawnCard);
-        Console.WriteLine();
-        Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
-        bool wasTurnEffected = false;
-
-        if (drawnCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
-        {
-            Console.WriteLine($"You drew {drawnCard.ToString()}");
-            Console.Write("Do you want to play in immediately? 1.Play it 2.Keep it: ");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "1":
-                    Console.WriteLine("You played the card");
-                    wasTurnEffected = PlayerPlayCard(currentPlayer, drawnCard);
-                    break;
-                case "2": Console.WriteLine("You kept the card"); break;
-                default: Console.WriteLine("Invalid chocie"); break;
-            }
-
-        }
-        return wasTurnEffected;
-    }
-
-    private void CheckDeck()
-    {
-        if (_deck.GetDeckCount() == 0)
-        {
-            Console.WriteLine("Deck empty shuffling deck");
-            Card topCard = TopOfDiscardPile; //Getting top of the discard to keep it
-            _discardPile.Remove(topCard);
-
-            foreach (Card card in _discardPile)
-            {
-                _deck.AddToDeck(card);
-            }
-            _discardPile.Clear();
-            _discardPile.Add(topCard);
-            _deck.ShuffleDeck();
-        }
-    }
-
-
+    
     private void TakeTurn()
     {
         Player currentPlayer = _players[_currentPlayerPosition];
-        // Console.Clear(); Removed for testing purpuses
+        Console.Clear();
 
         Console.WriteLine($"----Player {_currentPlayerPosition + 1}----");
         Console.WriteLine($"top card is: {TopOfDiscardPile.ToString()}");
@@ -177,35 +131,107 @@ public class Game
         {
             NextTurn();
         }
-
-
-        
-
     }
 
-    public void Run()
-    {
-        Console.WriteLine("Starting a new game");
-        Console.WriteLine();
-        StartGame(3);
 
-        while (!_hasPlayerWon)
+
+
+    //----Turn Logic----
+    private void NextTurn()
+    {
+        int nextPlayer = GetNextPlayerIndex();
+        _currentPlayerPosition = nextPlayer;
+    }
+
+    private int GetNextPlayerIndex()
+    {
+        int nextIndex = _currentPlayerPosition;
+        if (_isReversed)
         {
-            int i = 1;
-            foreach (Player player in _players)
-            {
-                Console.WriteLine($"Player #{i}");
-                player.DisplayHand();
-                i++;
-            }
-            TakeTurn();
+            nextIndex--;
+        }
+        else
+        {
+            nextIndex++;
         }
 
-        Console.WriteLine("Game Over");
-        Console.Write("press enter to close: ");
-        Console.ReadLine();
+        if (nextIndex >= _players.Count)
+        {
+            nextIndex = 0;
+        }
+        if (nextIndex < 0)
+        {
+            nextIndex = _players.Count - 1;
+        }
+
+        return nextIndex;
     }
 
+    private Player GetNextPlayer()
+    {
+        int nextIndex = GetNextPlayerIndex();
+        return _players[nextIndex];
+    }
+
+
+
+
+    //----Game/Card Logic----
+    public bool PlayerPlayCard(Player currentPlayer, Card cardToPlay)
+    {
+        currentPlayer.PlayCard(cardToPlay);
+        _discardPile.Add(cardToPlay);
+
+        Console.WriteLine();
+        Console.WriteLine($"You played |{cardToPlay.ToString()}|");
+        return cardToPlay.SpecialCardEffect(this);
+    }
+
+    public bool PlayerDrawCard(Player currentPlayer)
+    {
+        CheckDeck();
+        Card drawnCard = _deck.DrawCard();
+        currentPlayer.AddCardToHand(drawnCard);
+        Console.WriteLine();
+        Console.WriteLine($"You drew: |{drawnCard.ToString()}|");
+        bool wasTurnEffected = false;
+
+        if (drawnCard.CanPlayCard(TopOfDiscardPile.Color, TopOfDiscardPile.Value))
+        {
+            Console.WriteLine($"You drew {drawnCard.ToString()}");
+            Console.Write("Do you want to play in immediately? 1.Play it 2.Keep it: ");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("You played the card");
+                    wasTurnEffected = PlayerPlayCard(currentPlayer, drawnCard);
+                    break;
+                case "2": Console.WriteLine("You kept the card"); break;
+                default: Console.WriteLine("Invalid chocie"); break;
+            }
+
+        }
+        return wasTurnEffected;
+    }
+
+    private void CheckDeck()
+    {
+        if (_deck.GetDeckCount() == 0)
+        {
+            Console.WriteLine("Deck empty shuffling deck");
+            Card topCard = TopOfDiscardPile; //Getting top of the discard to keep it
+            _discardPile.Remove(topCard);
+
+            foreach (Card card in _discardPile)
+            {
+                _deck.AddToDeck(card);
+            }
+            _discardPile.Clear();
+            _discardPile.Add(topCard);
+            _deck.ShuffleDeck();
+        }
+    }
 
 
 
@@ -252,73 +278,4 @@ public class Game
     }
 
 
-    private int GetNextPlayerIndex()
-    {
-        int nextIndex = _currentPlayerPosition;
-        if (_isReversed)
-        {
-            nextIndex--;
-        }
-        else
-        {
-            nextIndex++;
-        }
-
-        if (nextIndex >= _players.Count)
-        {
-            nextIndex = 0;
-        }
-        if (nextIndex < 0)
-        {
-            nextIndex = _players.Count - 1;
-        }
-
-        return nextIndex;
-    }
-
-    private Player GetNextPlayer()
-    {
-        int nextIndex = GetNextPlayerIndex();
-        return _players[nextIndex];
-    }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // if (cardToPlay == null)
-        // {
-        //     Console.WriteLine("You have nothing to play, drawing card");
-        //     PlayerDrawCard(currentPlayer);
-        // }
-        // else
-        // {
-        //     // int cardOptions = cardToPlay.Count()
-        //     // PlayerPlayCard(currentPlayer, cardToPlay);
-        // }
-
-        // if (currentPlayer.GetHand().Count == 0)
-        // {
-        //     Console.WriteLine();
-        //     Console.WriteLine($"Player {_currentPlayerPosition + 1} Wins!");
-        //     _hasPlayerWon = true;
-        //     return;
-        // }
-
-
-        // NextTurn();
