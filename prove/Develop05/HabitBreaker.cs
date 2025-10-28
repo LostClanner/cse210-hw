@@ -8,12 +8,15 @@ public class HabitBreaker : Goal
     [JsonConstructor]
     public HabitBreaker(string name, string summary, int points) : base(name, summary, points)
     {
+        if (points > 0)
+        {
+            points = points * -1;
+        }
     }
     
     public override int RecordEvent()
     {
         return Points;
-        
     }
 
     public override bool IsComplete()
@@ -23,7 +26,7 @@ public class HabitBreaker : Goal
 
     public override string GetDisplayString()
     {
-        string display = $"[@] {Name}, {Summary}.";
+        string display = $"[!!] {Name}, {Summary}.";
         return display;
     }
 

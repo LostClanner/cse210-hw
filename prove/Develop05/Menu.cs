@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class Menu
 {
-    private List<Goal> _goal = new List<Goal>();
+    private List<Goal> _goals = new List<Goal>();
     private int _userPoints;
 
 
@@ -15,7 +15,7 @@ public class Menu
         int i = 1;
         Console.Clear();
         Console.WriteLine("These are your goals");
-        foreach (Goal goal in _goal)
+        foreach (Goal goal in _goals)
         {
             Console.WriteLine($"--- Goal #{i} ---");
             Console.WriteLine(goal.GetDisplayString());
@@ -44,7 +44,7 @@ public class Menu
         string summary = Console.ReadLine();
 
         Console.Write("How many points should be attached to the goal? ");
-        int points = int.Parse(Console.ReadLine());
+        int points = GetValidInteger();
 
 
 
@@ -52,40 +52,30 @@ public class Menu
         switch (choice)
         {
             case "1":
-                // Console.Write("How many points should the goal be worth? ");
-                // int points = int.Parse(Console.ReadLine());
                 Simple simpleGoal = new Simple(name, summary, points);
-                _goal.Add(simpleGoal);
+                _goals.Add(simpleGoal);
                 Console.Clear();
                 break;
 
             case "2":
                 Eternal eternalGoal = new Eternal(name, summary, points);
-                _goal.Add(eternalGoal);
+                _goals.Add(eternalGoal);
                 Console.Clear();
                 break;
 
             case "3":
                 Console.Write("How many times do you want to complete this goal? ");
-                int targetCount = int.Parse(Console.ReadLine());
-                // Console.Write("How many points should you get each time? ");
-                // int point = int.Parse(Console.ReadLine());
+                int targetCount = GetValidInteger();
                 Console.Write("How many bonus points for completing the whole thing? ");
-                int bonusPoints = int.Parse(Console.ReadLine());
+                int bonusPoints = GetValidInteger();
 
                 Checklist checklistGoal = new Checklist(name, summary, points, bonusPoints, targetCount);
-                _goal.Add(checklistGoal);
+                _goals.Add(checklistGoal);
                 break;
 
             case "4":
-                // Console.Write("How many points should the bad habbit subtract? ");
-                // int minusPoints = int.Parse(Console.ReadLine());
-                if(points > 0)
-                {
-                    points = points * -1;
-                }
                 HabitBreaker habitBreaker = new HabitBreaker(name, summary, points);
-                _goal.Add(habitBreaker);
+                _goals.Add(habitBreaker);
                 Console.Clear();
                 break;
             default:
@@ -104,12 +94,12 @@ public class Menu
         Thread.Sleep(1000);
         ListGoals();
         Console.Write("Enter the number of the goal");
-        int i = int.Parse(Console.ReadLine());
+        int i = GetValidInteger();
         i--;
 
-        if (i >= 0 && i < _goal.Count)
+        if (i >= 0 && i < _goals.Count)
         {
-            Goal selectGoal = _goal[i];
+            Goal selectGoal = _goals[i];
             int pointsScored = selectGoal.RecordEvent();
             _userPoints += pointsScored;
 
@@ -136,7 +126,7 @@ public class Menu
         SaveGoals data = new SaveGoals
         {
             UserPoints = _userPoints,
-            Goals = _goal
+            Goals = _goals
         };
 
         var options = new JsonSerializerOptions { WriteIndented = true };
@@ -161,7 +151,7 @@ public class Menu
             SaveGoals data = JsonSerializer.Deserialize<SaveGoals>(jsonString);
 
             _userPoints = data.UserPoints;
-            _goal = data.Goals; 
+            _goals = data.Goals; 
             Console.WriteLine("Success! Loaded goals!");
         }
         else
@@ -171,6 +161,24 @@ public class Menu
         }
     }
         
-    
+    private int GetValidInteger(string prompt = "> ")
+    {
+        int number;
+        bool isValid = false;
+
+        do
+        {
+            Console.Write(prompt); 
+            string input = Console.ReadLine();
+            isValid = int.TryParse(input, out number);
+            
+            if (!isValid)
+            {
+                Console.WriteLine("That is not a valid number. Please try again.");
+            }
+        } while (!isValid);
+
+        return number;
+    }
 
 }

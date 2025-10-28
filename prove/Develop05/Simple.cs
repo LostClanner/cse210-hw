@@ -14,8 +14,16 @@ public class Simple : Goal
     
     public override int RecordEvent()
     {
+        if (_isComplete)
+        {
+            return 0;
+        }
+        else
+        {
         _isComplete = true;
         return Points;
+        }
+
         
     }
 
