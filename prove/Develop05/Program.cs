@@ -8,7 +8,6 @@ class Program
     static void Main(string[] args)
     {
         bool isRunning = true;
-        int choice = -1;
         Menu testMenu = new Menu();
 
         while (isRunning)
@@ -22,29 +21,29 @@ class Program
             Console.WriteLine("5. Save goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
-            choice = int.Parse(Console.ReadLine());
+            string choice = Console.ReadLine();
 
             switch (choice)
             {
-                case 1:
+                case "1":
                     testMenu.MakeGoals();
                     break;
 
-                case 2:
+                case "2":
                     testMenu.ListGoals();
                     break;
 
-                case 3:
+                case "3":
                     testMenu.CompleteGoals();
                     break;
-                case 4:
+                case "4":
                     testMenu.LoadGoals();
                     break;
-                case 5:
+                case "5":
                     testMenu.SaveGoals();
                     break;
 
-                case 0:
+                case "0":
                     isRunning = false;
                     Console.WriteLine("Have a great day!");
                     Thread.Sleep(1200);
