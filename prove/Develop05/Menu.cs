@@ -33,11 +33,11 @@ public class Menu
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.WriteLine("4. Bad Habbit");
+        Console.WriteLine("4. Bad Habit");
         Console.Write("Please select 1-3: ");
         string choice = Console.ReadLine();
 
-        Console.Write("What's the name of the goal/habbit? ");
+        Console.Write("What's the name of the goal/habit? ");
         string name = Console.ReadLine();
 
         Console.Write("How are you going to complete this goal? ");
@@ -81,8 +81,8 @@ public class Menu
                 {
                     minusPoints = minusPoints * -1;
                 }
-                HabbitBreaker habbitBreaker = new HabbitBreaker(name, summary, minusPoints);
-                _goal.Add(habbitBreaker);
+                HabitBreaker habitBreaker = new HabitBreaker(name, summary, minusPoints);
+                _goal.Add(habitBreaker);
                 Console.Clear();
                 break;
             default:

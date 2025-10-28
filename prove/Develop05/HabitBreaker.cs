@@ -3,10 +3,10 @@ using System.Text.Json.Serialization;
 
 
 
-public class HabbitBreaker : Goal
+public class HabitBreaker : Goal
 {
     [JsonConstructor]
-    public HabbitBreaker(string name, string summary, int points) : base(name, summary, points)
+    public HabitBreaker(string name, string summary, int points) : base(name, summary, points)
     {
     }
     
