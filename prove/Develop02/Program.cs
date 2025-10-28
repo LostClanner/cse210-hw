@@ -24,6 +24,7 @@ class Program
             Console.Write("please choose: ");
 
             string choice = Console.ReadLine();
+            string filename;
 
             switch (choice)
             {
@@ -43,10 +44,14 @@ class Program
                     break;
                 case "3":
                     Console.Write("What is the file you want to load: ");
-                    string filename = Console.ReadLine();
+                    filename = Console.ReadLine();
                     j1.LoadEntry(filename);
                     break;
                 case "4":
+                    Console.Write("What is the file you want to save to: ");
+                    filename = Console.ReadLine();
+                    j1.SaveEntry(filename);
+                    break;
                 case "5":
                 default:
                     Console.WriteLine("Error invalid response");
