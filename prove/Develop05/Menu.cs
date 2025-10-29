@@ -11,7 +11,7 @@ public class Menu
     private int _userPoints;
 
 
-    public void ListGoals()
+    private void DisplayGoals()
     {
         int i = 1;
         Console.Clear();
@@ -27,9 +27,15 @@ public class Menu
             Console.WriteLine(goal.GetDisplayString());
             i++;
         }
-        
+
         Console.WriteLine($"You currently have {_userPoints} points!");
-        Console.Write("press enter to continue: ");
+    }
+
+    public void ListGoals()
+    {
+        DisplayGoals();
+
+        Console.Write("Press enter to continue: ");
         Console.ReadLine();
     }
 
@@ -109,8 +115,7 @@ public class Menu
     public void CompleteGoals()
     {
         Console.WriteLine("Which goal did you complete?");
-        Thread.Sleep(1000);
-        ListGoals();
+        DisplayGoals();
         Console.Write("Enter the number of the goal");
         int i = GetValidInteger();
         i--;
