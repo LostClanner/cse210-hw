@@ -16,6 +16,10 @@ public class Menu
         int i = 1;
         Console.Clear();
         Console.WriteLine("These are your goals");
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("\nYou have no goals yet!");
+        }
         foreach (Goal goal in _goals)
         {
             Console.WriteLine($"--- Goal #{i} ---");
@@ -35,8 +39,13 @@ public class Menu
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
         Console.WriteLine("4. Bad Habit (this will subtract the points)");
+
         Console.Write("Please select 1-4: ");
-        string choice = Console.ReadLine();
+        int choice;
+        if (!int.TryParse(Console.ReadLine(), out choice))
+        {
+            choice = -1;
+        }
 
         Console.Write("What's the name of the goal/habit? ");
         string name = Console.ReadLine();
@@ -45,7 +54,7 @@ public class Menu
         string summary = Console.ReadLine();
 
         int points = 0;
-        if (choice == "1" || choice == "2" || choice == "4")
+        if (choice == 1 || choice == 2 || choice == 4)
         {
             Console.Write("How many points should be attached to the goal? ");
             points = GetValidInteger();
@@ -56,19 +65,19 @@ public class Menu
 
         switch (choice)
         {
-            case "1":
+            case 1:
                 Simple simpleGoal = new Simple(name, summary, points);
                 _goals.Add(simpleGoal);
                 Console.Clear();
                 break;
 
-            case "2":
+            case 2:
                 Eternal eternalGoal = new Eternal(name, summary, points);
                 _goals.Add(eternalGoal);
                 Console.Clear();
                 break;
 
-            case "3":
+            case 3:
                 Console.Write("How many points each time? ");
                 int checklistPoints = GetValidInteger();
                 Console.Write("How many times do you want to complete this goal? ");
@@ -80,7 +89,7 @@ public class Menu
                 _goals.Add(checklistGoal);
                 break;
 
-            case "4":
+            case 4:
                 HabitBreaker habitBreaker = new HabitBreaker(name, summary, points);
                 _goals.Add(habitBreaker);
                 Console.Clear();
@@ -107,6 +116,12 @@ public class Menu
         if (i >= 0 && i < _goals.Count)
         {
             Goal selectGoal = _goals[i];
+            if (selectGoal.IsComplete())
+                {
+                    Console.WriteLine("This goal is already complete!");
+                    Thread.Sleep(1200);
+                    return;
+                }
             int pointsScored = selectGoal.RecordEvent();
             _userPoints += pointsScored;
 
@@ -130,6 +145,11 @@ public class Menu
         Console.WriteLine("What file to you want to save to?\nEX: Goals.json (must be .json)");
         string filename = Console.ReadLine();
 
+        if (!filename.EndsWith(".json"))
+        {
+            filename += ".json";
+        }
+
         SaveGoals data = new SaveGoals
         {
             UserPoints = _userPoints,
@@ -150,16 +170,28 @@ public class Menu
         Console.Write("What file would you like to load from? ");
         string filename = Console.ReadLine();
 
+        if (!filename.EndsWith(".json"))
+        {
+            filename += ".json";
+        }
+
         if (File.Exists(filename))
         {
             Console.WriteLine("Loading goals from file...");
             string jsonString = File.ReadAllText(filename);
             
-            SaveGoals data = JsonSerializer.Deserialize<SaveGoals>(jsonString);
+            try
+            {
+                SaveGoals data = JsonSerializer.Deserialize<SaveGoals>(jsonString);
 
-            _userPoints = data.UserPoints;
-            _goals = data.Goals; 
-            Console.WriteLine("Success! Loaded goals!");
+                _userPoints = data.UserPoints;
+                _goals = data.Goals; 
+                Console.WriteLine("Success! Loaded goals!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: Could not load file. {ex.Message}");
+            }
         }
         else
         {

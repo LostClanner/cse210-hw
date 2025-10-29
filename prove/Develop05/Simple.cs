@@ -10,7 +10,7 @@ public class Simple : Goal
     [JsonConstructor]
     public Simple(string name, string summary, int points, bool isCompleteCheck) : base(name, summary, points)
     {
-        IsCompleteCheck = IsCompleteCheck;
+        this.IsCompleteCheck = isCompleteCheck;
     }
 
     public Simple(string name, string summary, int points) : base(name, summary, points)
