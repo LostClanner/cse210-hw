@@ -20,12 +20,14 @@ public class Menu
         {
             Console.WriteLine("\nYou have no goals yet!");
         }
+
         foreach (Goal goal in _goals)
         {
             Console.WriteLine($"--- Goal #{i} ---");
             Console.WriteLine(goal.GetDisplayString());
             i++;
         }
+        
         Console.WriteLine($"You currently have {_userPoints} points!");
         Console.Write("press enter to continue: ");
         Console.ReadLine();
