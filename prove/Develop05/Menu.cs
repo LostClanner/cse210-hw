@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Text.Json;
 using System.Collections.Generic;
+using System.IO;
 
 
 public class Menu
@@ -34,7 +35,7 @@ public class Menu
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
         Console.WriteLine("4. Bad Habit (this will subtract the points)");
-        Console.Write("Please select 1-3: ");
+        Console.Write("Please select 1-4: ");
         string choice = Console.ReadLine();
 
         Console.Write("What's the name of the goal/habit? ");
@@ -43,8 +44,12 @@ public class Menu
         Console.Write("How are you going to complete this goal? ");
         string summary = Console.ReadLine();
 
-        Console.Write("How many points should be attached to the goal? ");
-        int points = GetValidInteger();
+        int points = 0;
+        if (choice == "1" || choice == "2" || choice == "4")
+        {
+            Console.Write("How many points should be attached to the goal? ");
+            points = GetValidInteger();
+        }
 
 
 
@@ -64,12 +69,14 @@ public class Menu
                 break;
 
             case "3":
+                Console.Write("How many points each time? ");
+                int checklistPoints = GetValidInteger();
                 Console.Write("How many times do you want to complete this goal? ");
                 int targetCount = GetValidInteger();
                 Console.Write("How many bonus points for completing the whole thing? ");
                 int bonusPoints = GetValidInteger();
 
-                Checklist checklistGoal = new Checklist(name, summary, points, bonusPoints, targetCount);
+                Checklist checklistGoal = new Checklist(name, summary, checklistPoints, bonusPoints, targetCount);
                 _goals.Add(checklistGoal);
                 break;
 
