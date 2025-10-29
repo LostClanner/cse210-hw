@@ -23,7 +23,7 @@ public class Eternal : Goal
 
     public override string GetDisplayString()
     {
-        string display = $"[@] {Name}, {Summary}.";
+        string display = $"[@] {Name} ({Summary}) (Worth {Points} points each time)";
         return display;
     }
 

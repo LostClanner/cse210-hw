@@ -5,30 +5,44 @@ using System.Text.Json.Serialization;
 
 public class Checklist : Goal
 {
-    private bool _isComplete = false;
-    private int _bonusPoints;
-    private int _targetCount;
-    private int _currentCount = 0;
-    [JsonConstructor]
+    public bool IsCompleteCheck { get; private set; } = false;
+    public int BonusPoints { get; private set; }
+    public int TargetCount { get; private set; }
+    public int CurrentCount { get; private set; } = 0;
+
+
+
     public Checklist(string name, string summary, int points, int bonusPoints, int targetCount) : base(name, summary, points)
     {
-        _bonusPoints = bonusPoints;
-        _targetCount = targetCount;
+        BonusPoints = bonusPoints;
+        TargetCount = targetCount;
     }
     
+    [JsonConstructor]
+    public Checklist(string name, string summary, int points, bool isComplete, int bonusPoints, int targetCount, int currentCount) : base(name, summary, points)
+    {
+        IsCompleteCheck = isComplete;
+        BonusPoints = bonusPoints;
+        TargetCount = targetCount;
+        CurrentCount = currentCount;
+    }
+
+
+
     public override int RecordEvent()
     {
-        _currentCount++;
-        if (_isComplete)
+        if (IsCompleteCheck)
         {
             Console.WriteLine("This goal is already completed!");
             return 0;
         }
+
+        CurrentCount++;
         
-        if(_currentCount == _targetCount)
+        if(CurrentCount == TargetCount)
         {
-            _isComplete = true;
-            return _bonusPoints + Points;
+            IsCompleteCheck = true;
+            return BonusPoints + Points;
         }
         else
         {
@@ -41,17 +55,19 @@ public class Checklist : Goal
 
     public override bool IsComplete()
     {
-        return _isComplete;
+        return IsCompleteCheck;
     }
 
     public override string GetDisplayString()
     {
         string completed = "[]";
-        if (_isComplete)
+        if (IsCompleteCheck)
         {
             completed = "[x]";
         }
-        string display = $"{completed} {Name}, {Summary}. And it's worth {Points} points! Plus {_bonusPoints} bonus points!\nYou have completed the goal {_currentCount}/{_targetCount}";
+        string display = $"{completed} {Name} ({Summary})\n" +
+                         $"    -- Completed {CurrentCount}/{TargetCount}\n" +
+                         $"    -- {Points} points each time, {BonusPoints} bonus on completion.";
         return display;
     }
 
