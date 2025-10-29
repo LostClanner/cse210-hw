@@ -19,9 +19,9 @@ public class Checklist : Goal
     }
     
     [JsonConstructor]
-    public Checklist(string name, string summary, int points, bool isComplete, int bonusPoints, int targetCount, int currentCount) : base(name, summary, points)
+    public Checklist(string name, string summary, int points, bool isCompleteCheck, int bonusPoints, int targetCount, int currentCount) : base(name, summary, points)
     {
-        IsCompleteCheck = isComplete;
+        IsCompleteCheck = isCompleteCheck;
         BonusPoints = bonusPoints;
         TargetCount = targetCount;
         CurrentCount = currentCount;
@@ -38,7 +38,7 @@ public class Checklist : Goal
         }
 
         CurrentCount++;
-        
+
         if(CurrentCount == TargetCount)
         {
             IsCompleteCheck = true;
@@ -46,7 +46,6 @@ public class Checklist : Goal
         }
         else
         {
-            // _currentCount++;
             return Points;
         }
         
