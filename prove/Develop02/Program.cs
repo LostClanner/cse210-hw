@@ -1,91 +1,80 @@
 using System;
-using System.Threading.Tasks.Dataflow;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 class Program
 {
     static void Main(string[] args)
     {
-        //Just a little welcome message
-        Console.WriteLine("------------Journal home page------------");
-        bool continueProgram = true;
-        string myjson = "";
+        Journal j1 = new Journal();
+        PromptGen pG1 = new PromptGen();
+        bool contineRun = true;
 
-        while (continueProgram)
+        Console.WriteLine("--------Welcome to the journal--------");
+
+        while (contineRun)
         {
-            //Getiing the user input
-            Console.WriteLine("Type a number between 1 and 5 to select an option:");
-            Console.WriteLine("Enter 1 to write your journal");
-            Console.WriteLine("Enter 2 to display your journal");
-            Console.WriteLine("Enter 3 to load your journal file");
-            Console.WriteLine("Enter 4 to save your journal");
-            Console.WriteLine("Enter 5 to quit");
-            Console.WriteLine(""); //blank line to make it cleaner
+            Console.WriteLine("\nPick a number between 1-5 to select an option");
+            Console.WriteLine("1. Write a new journal entry");
+            Console.WriteLine("2. Display your journal");
+            Console.WriteLine("3. Load a file");
+            Console.WriteLine("4. Save to a file");
+            Console.WriteLine("5. Quit");
+            Console.Write("> ");
 
-            //int Selection = 0;
-            if (int.TryParse(Console.ReadLine(), out int Selection))
+            string choice = Console.ReadLine();
+            string filename;
+
+            switch (choice)
             {
-                // The string was successfully converted to an integer
-                Console.WriteLine($"Parsed integer: {Selection}");
-            }
-            else
-            {
-                // The string could not be converted to an integer
-                Console.WriteLine("Input is not a valid integer.");
-            }
-
-            //int Selection = int.Parse(Console.ReadLine());
-            string filename = "";
-
-
-            //Switch should be a lot better!
-            switch (Selection)
-            {
-                case 1:
-                    Console.WriteLine("You selected option 1: Write your journal");
-                    // random questions
-                    PromptGen prompt = new PromptGen();
-                    string randomPrompt = prompt._generatePrompt();
+                case "1":
+                    Console.WriteLine("Your prompt to write");
+                    string randomPrompt = pG1.GeneratePrompt();
                     Console.WriteLine(randomPrompt);
+                    Console.Write("> ");
+                    string response = Console.ReadLine();
 
-                    String response = Console.ReadLine();
-                    DateTime currentTime = DateTime.Now;
-                    Console.WriteLine("Current local time is: " + currentTime);
-                    myjson += $"{{\"date\":\"{currentTime}\", \"prompt\":\"{randomPrompt}\", \"response\":\"{response}\"}}";
-                    Console.WriteLine("Entry recorded.");
-                    Console.WriteLine(myjson);
+                    j1.AddNewEntry(randomPrompt, response);
+                    break;
 
+                case "2":
+                    Console.WriteLine("Your journal: \n");
+                    j1.DisplayEntry();
                     break;
-                case 2:
-                    Console.WriteLine("You selected option 2: Display your journal");
-                    Console.WriteLine("Here is your journal:");
-                    Console.WriteLine(myjson);
-                    break;
-                case 3:
-                    Console.WriteLine("You selected option 3: Load your journal file");
-                    Console.WriteLine("What is the filename?");
+                case "3":
+                    Console.Write("What is the file you want to load: ");
                     filename = Console.ReadLine();
-                    LoadJson loadJson = new LoadJson();
-                    myjson = loadJson._load(filename);
-                    Console.WriteLine("File loaded");
-
+                    j1.LoadEntry(filename);
                     break;
-                case 4:
-                    Console.WriteLine("You selected option 4: Save your journal");
-                    Console.WriteLine("What is the filename?");
+                case "4":
+                    Console.Write("What is the file you want to save to: ");
                     filename = Console.ReadLine();
-                    SaveJson saveJson = new SaveJson();
-                    saveJson._save(filename, myjson);
-                    Console.WriteLine("File saved");
+                    j1.SaveEntry(filename);
                     break;
-                case 5:
-                    Console.WriteLine("You selected option 5: Quit");
-                    continueProgram = false;
+                case "5":
+                    Console.WriteLine("Thanks for using the journal!");
+                    contineRun = false;
                     break;
                 default:
-                    Console.WriteLine("Invalid selection. Please enter a number between 1 and 5.");
+                    Console.WriteLine("Error invalid response");
                     break;
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
-    
 }
