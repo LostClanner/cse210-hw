@@ -8,12 +8,13 @@ class Program
     static void Main(string[] args)
     {
         bool isRunning = true;
-        int choice = -1;
         Menu testMenu = new Menu();
 
         while (isRunning)
         {
+            Console.Clear();
             Console.WriteLine("Welcome to Goal Setter Quest");
+
             Console.WriteLine("Please select what you would like to do");
             Console.WriteLine("1. Make a new goal");
             Console.WriteLine("2. List all of your goals");
@@ -22,7 +23,12 @@ class Program
             Console.WriteLine("5. Save goals");
             Console.WriteLine("0. Quit ");
             Console.Write("> ");
-            choice = int.Parse(Console.ReadLine());
+
+            int choice;
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                choice = -1;
+            }
 
             switch (choice)
             {
@@ -51,8 +57,8 @@ class Program
                     break;
 
                 default:
-                    Console.WriteLine("Incorrect answer, please type a real number");
-                    Thread.Sleep(3000);
+                    Console.WriteLine("Incorrect answer, please type a valid number");
+                    Thread.Sleep(2000);
                     break;
             }
 

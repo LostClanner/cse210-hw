@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 public class Eternal : Goal
 {
     [JsonConstructor]
-    public Eternal(string name, string summary) : base(name, summary, 0)
+    public Eternal(string name, string summary,int points) : base(name, summary, points)
     {
     }
     
@@ -23,7 +23,7 @@ public class Eternal : Goal
 
     public override string GetDisplayString()
     {
-        string display = $"[@] {Name}, {Summary}.";
+        string display = $"[@] {Name} ({Summary}) (Worth {Points} points each time)";
         return display;
     }
 

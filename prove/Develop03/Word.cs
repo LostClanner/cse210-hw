@@ -14,7 +14,6 @@ class Word
     {
         _theText = TheText;
         _isHidden = false;
-
     }
 
     //hides words
@@ -28,7 +27,7 @@ class Word
     {
         if (_isHidden)
         {
-            return "______";
+            return new string('_', _theText.Length);
         }
         else
         {
